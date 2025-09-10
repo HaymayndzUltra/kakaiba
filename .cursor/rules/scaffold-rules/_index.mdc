@@ -1,0 +1,42 @@
+---
+description: "TAGS: [cursor,scaffold,index,profiles] | TRIGGERS: LIST_SCAFFOLDS,SELECT_SCAFFOLD,GENERATE_FROM_PROFILE | SCOPE: cursor-rules | DESCRIPTION: Index of scaffold profiles (A–O) and selection triggers to generate rules per repo."
+alwaysApply: false
+---
+
+# Scaffold Profiles Index (A–O)
+
+## [STRICT] Purpose
+- Provide a catalog of scaffold profiles derived from `PLANFORSCAFFOLD.md`.
+- Allow selection of a profile and invocation of rule generation for a target repo.
+
+## [STRICT] Triggers
+
+### LIST_SCAFFOLDS
+- Role: List available scaffold profiles and short descriptions
+
+### SELECT_SCAFFOLD
+- Role: Set active scaffold profile for subsequent generation
+- Accepts: `id: A|B|C|...|O`
+
+### GENERATE_FROM_PROFILE
+- Role: Generate rules for the selected scaffold to `.cursor/rules/generated/`
+- Accepts: `repoPath` (or `tree` pasted), `projectName?`
+- Runs: `MAKE_RULES_FROM_SCAFFOLD` with profile-specific mapping
+
+## [STRICT] Profiles
+- A: Universal Baseline
+- B: Frontend – SPA
+- C: Frontend – SSR/Meta
+- D: Backend – Node.js
+- E: Backend – Python (FastAPI/Flask/Django)
+- F: Backend – Java (Spring)
+- G: Backend – .NET (ASP.NET Core)
+- H: Full-stack Monorepo
+- I: Serverless
+- J: Mobile
+- K: Data/ML
+- L: Library/SDK
+- M: CLI Tool
+- N: IaC/Terraform
+- O: Microservices Platform
+

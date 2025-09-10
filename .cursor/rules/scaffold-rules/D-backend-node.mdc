@@ -1,0 +1,30 @@
+---
+description: "TAGS: [scaffold,backend,node,express,fastify,nest] | TRIGGERS: GEN_BE_NODE_RULES,BE_MODULE_RULES,BE_EVENTS_RULES,BE_JOBS_RULES,BE_SECURITY_RULES,BE_OBS_RULES | SCOPE: cursor-rules | DESCRIPTION: Node.js backend rules for modular features, events, jobs, security, and observability."
+alwaysApply: false
+---
+
+# D. Backend Node.js Rules
+
+## [STRICT] Purpose
+- Standardize feature modules, integrations, events, jobs, and policies for Node backends.
+
+## [STRICT] Triggers
+
+### GEN_BE_NODE_RULES
+- Role: Generate Node backend rules and tasks
+
+### BE_MODULE_RULES
+- Role: Module layout (controllers/services/repositories/entities/validators/routes)
+
+### BE_EVENTS_RULES
+- Role: Pub/sub conventions (publishers/subscribers/schemas)
+
+### BE_JOBS_RULES
+- Role: Workers/schedules with idempotency/backoff patterns
+
+### BE_SECURITY_RULES
+- Role: Input validation, rate limit, CORS/CSP docs, auth patterns
+
+### BE_OBS_RULES
+- Role: Logging format, metrics, tracing spec under ops/observability/
+

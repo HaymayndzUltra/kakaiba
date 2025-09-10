@@ -1,0 +1,34 @@
+---
+description: "TAGS: [scaffold,baseline,quality,security,ci] | TRIGGERS: GEN_BASELINE_RULES,ADD_BASELINE_CHECKS,VALIDATE_BASELINE,LIST_BASELINE_TASKS | SCOPE: cursor-rules | DESCRIPTION: Universal baseline rules for any repo: docs, config, scripts, tests, ops, governance."
+alwaysApply: false
+---
+
+# A. Universal Baseline Rules
+
+## [STRICT] Purpose
+- Enforce consistent quality, security, portability, and operability across all projects.
+
+## [STRICT] Triggers
+
+### GEN_BASELINE_RULES
+- Role: Generate baseline rule files and tasks under `.cursor/rules/generated/baseline.mdc`
+- Output includes: governance, CI, testing, scripts, secrets policy, observability stubs
+
+### ADD_BASELINE_CHECKS
+- Role: Register quality gates (lint/test/audit/coverage/perf/accessibility when applicable)
+- Output: `generated/baseline_checks.mdc`
+
+### VALIDATE_BASELINE
+- Role: Validate presence of baseline folders/files per checklist
+- Output: Report with missing items and suggested diffs
+
+### LIST_BASELINE_TASKS
+- Role: Print recommended tasks to implement or verify baseline
+
+## [STRICT] Coverage
+- Folders: docs/, config/, scripts/, tools/, test/, ops/, migrations/, i18n/
+- Governance: LICENSE, CONTRIBUTING, CODE_OF_CONDUCT, CHANGELOG, README
+- CI/CD: .github/workflows/* (lint → test → build → scan → release/deploy)
+- Observability: logs/metrics/traces plans
+- Security: secrets policy, dependency/SBOM policy, threat model
+

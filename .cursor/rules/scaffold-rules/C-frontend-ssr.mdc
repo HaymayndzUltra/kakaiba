@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,frontend,ssr,next,nuxt,sveltekit,astro] | TRIGGERS: GEN_FE_SSR_RULES,FE_COMPONENT_BOUNDARIES,FE_EDGE_MIDDLEWARE,FE_CMS_ADAPTERS,FE_PERF_BUDGETS | SCOPE: cursor-rules | DESCRIPTION: SSR/meta-framework rules for server/client components, edge middleware, CMS adapters, and performance budgets."
+alwaysApply: false
+---
+
+# C. Frontend SSR Rules
+
+## [STRICT] Purpose
+- Encode SSR/SSG/ISR conventions with clear server/client boundaries.
+
+## [STRICT] Triggers
+
+### GEN_FE_SSR_RULES
+- Role: Generate SSR/meta rules and tasks
+
+### FE_COMPONENT_BOUNDARIES
+- Role: Enforce server vs client components separation
+
+### FE_EDGE_MIDDLEWARE
+- Role: Define edge middleware policies (auth, AB tests, geolocation)
+
+### FE_CMS_ADAPTERS
+- Role: Standardize CMS adapters under services/cms/
+
+### FE_PERF_BUDGETS
+- Role: Establish performance budgets and SSR timing checks
+
