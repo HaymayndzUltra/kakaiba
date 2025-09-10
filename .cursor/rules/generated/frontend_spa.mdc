@@ -1,0 +1,373 @@
+---
+description: "TAGS: [frontend,spa,react,vue,svelte,angular,generated] | TRIGGERS: GEN_FE_SPA_RULES,FE_ROUTE_RULES,FE_STATE_RULES,FE_API_CLIENT_RULES,FE_A11Y_RULES,FE_VITALS_RULES | SCOPE: frontend-spa | DESCRIPTION: Generated SPA rules for /workspace/frontend-spa project"
+alwaysApply: true
+---
+
+# Frontend SPA Rules - frontend-spa
+
+## [STRICT] Project Structure
+```
+frontend-spa/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── ui/             # Basic UI elements (Button, Input, etc.)
+│   │   ├── layout/         # Layout components (Header, Sidebar, etc.)
+│   │   └── features/       # Feature-specific components
+│   ├── pages/              # Page components (React Router, Next.js pages)
+│   ├── hooks/              # Custom React hooks
+│   ├── store/              # State management (Redux, Zustand, Pinia)
+│   ├── services/           # API clients and external services
+│   │   └── api/            # API endpoints and client configuration
+│   ├── utils/              # Utility functions and helpers
+│   ├── types/              # TypeScript type definitions
+│   ├── styles/             # Global styles and themes
+│   └── assets/             # Static assets (images, icons, fonts)
+├── public/                 # Public static files
+├── test/                   # Test files
+│   ├── unit/              # Unit tests
+│   ├── integration/       # Integration tests
+│   └── accessibility/     # A11y tests
+├── ops/                   # Operations and deployment
+│   └── observability/     # Monitoring and analytics
+└── docs/                  # Documentation
+```
+
+## [STRICT] Component Rules
+
+### Component Organization
+- **Atomic Design**: Use atomic design principles (atoms, molecules, organisms)
+- **Feature-based**: Group related components in feature folders
+- **Co-location**: Keep components close to their usage when possible
+- **Barrel Exports**: Use index.ts files for clean imports
+
+### Component Structure
+```typescript
+// Component file structure
+interface ComponentProps {
+  // Props definition
+}
+
+export const ComponentName: React.FC<ComponentProps> = ({ ...props }) => {
+  // Hooks
+  // State
+  // Effects
+  // Handlers
+  
+  return (
+    // JSX
+  );
+};
+
+// Default export for barrel exports
+export default ComponentName;
+```
+
+### Component Naming
+- **PascalCase**: All components use PascalCase
+- **Descriptive**: Names should clearly indicate purpose
+- **Consistent**: Use consistent naming patterns across the project
+
+## [STRICT] Routing Rules
+
+### Route Organization
+- **Page-based**: Each route corresponds to a page component
+- **Nested Routes**: Use nested routing for complex layouts
+- **Route Guards**: Implement authentication and authorization guards
+- **Lazy Loading**: Use code splitting for route-based chunks
+
+### Route Structure
+```typescript
+// Route configuration
+const routes = [
+  {
+    path: '/',
+    component: HomePage,
+    exact: true,
+  },
+  {
+    path: '/dashboard',
+    component: DashboardPage,
+    protected: true,
+    roles: ['user', 'admin'],
+  },
+  {
+    path: '/profile',
+    component: ProfilePage,
+    protected: true,
+  },
+];
+```
+
+### Navigation
+- **Consistent**: Use consistent navigation patterns
+- **Accessible**: Ensure keyboard navigation works
+- **Breadcrumbs**: Implement breadcrumb navigation for deep routes
+
+## [STRICT] State Management Rules
+
+### Store Organization
+- **Feature-based**: Organize stores by feature/domain
+- **Separation**: Separate UI state from business logic
+- **Normalization**: Normalize complex data structures
+- **Immutable**: Use immutable update patterns
+
+### State Structure
+```typescript
+// Store structure
+interface AppState {
+  ui: {
+    theme: 'light' | 'dark';
+    sidebarOpen: boolean;
+    loading: boolean;
+  };
+  auth: {
+    user: User | null;
+    token: string | null;
+    isAuthenticated: boolean;
+  };
+  entities: {
+    users: Record<string, User>;
+    posts: Record<string, Post>;
+  };
+}
+```
+
+### State Updates
+- **Actions**: Use action creators for state updates
+- **Reducers**: Keep reducers pure and predictable
+- **Effects**: Handle side effects in middleware or effects
+- **Selectors**: Use selectors for computed state
+
+## [STRICT] API Client Rules
+
+### API Organization
+- **Service-based**: Group API calls by service/domain
+- **Centralized**: Use centralized API client configuration
+- **Error Handling**: Implement consistent error handling
+- **Retry Logic**: Add retry logic for failed requests
+
+### API Client Structure
+```typescript
+// API client configuration
+class ApiClient {
+  private baseURL: string;
+  private token: string | null = null;
+
+  constructor(baseURL: string) {
+    this.baseURL = baseURL;
+  }
+
+  setToken(token: string) {
+    this.token = token;
+  }
+
+  async request<T>(endpoint: string, options: RequestOptions): Promise<T> {
+    // Request implementation with retry logic
+  }
+}
+
+// Service implementation
+export class UserService {
+  constructor(private api: ApiClient) {}
+
+  async getUsers(): Promise<User[]> {
+    return this.api.request<User[]>('/users', { method: 'GET' });
+  }
+
+  async createUser(user: CreateUserRequest): Promise<User> {
+    return this.api.request<User>('/users', {
+      method: 'POST',
+      body: JSON.stringify(user),
+    });
+  }
+}
+```
+
+### Error Handling
+- **Consistent**: Use consistent error response format
+- **User-friendly**: Provide user-friendly error messages
+- **Logging**: Log errors for debugging
+- **Retry**: Implement exponential backoff for retries
+
+## [STRICT] Accessibility Rules
+
+### A11y Testing
+- **Automated**: Use axe-core for automated testing
+- **Manual**: Include manual accessibility testing
+- **Keyboard**: Ensure full keyboard navigation
+- **Screen Readers**: Test with screen readers
+
+### A11y Implementation
+```typescript
+// Accessible component example
+export const AccessibleButton: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  disabled,
+  ...props
+}) => {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={props['aria-label']}
+      role="button"
+      tabIndex={disabled ? -1 : 0}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
+```
+
+### A11y Checklist
+- **Semantic HTML**: Use semantic HTML elements
+- **ARIA Labels**: Add ARIA labels where needed
+- **Focus Management**: Manage focus properly
+- **Color Contrast**: Ensure sufficient color contrast
+- **Alt Text**: Provide alt text for images
+
+## [STRICT] Performance Rules
+
+### Web Vitals
+- **LCP**: Optimize Largest Contentful Paint
+- **FID**: Minimize First Input Delay
+- **CLS**: Prevent Cumulative Layout Shift
+- **TTFB**: Optimize Time to First Byte
+
+### Performance Optimization
+```typescript
+// Code splitting example
+const LazyComponent = React.lazy(() => import('./LazyComponent'));
+
+// Memoization example
+const MemoizedComponent = React.memo(({ data }) => {
+  return <div>{data.name}</div>;
+});
+
+// Virtual scrolling for large lists
+const VirtualizedList = ({ items, itemHeight }) => {
+  // Virtual scrolling implementation
+};
+```
+
+### Bundle Optimization
+- **Tree Shaking**: Remove unused code
+- **Code Splitting**: Split code by routes and features
+- **Lazy Loading**: Load components and assets on demand
+- **Compression**: Use gzip/brotli compression
+
+## [STRICT] Testing Rules
+
+### Test Organization
+- **Unit Tests**: Test individual components and functions
+- **Integration Tests**: Test component interactions
+- **E2E Tests**: Test complete user flows
+- **A11y Tests**: Test accessibility compliance
+
+### Test Structure
+```typescript
+// Component test example
+describe('Button Component', () => {
+  it('renders with correct text', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+
+  it('calls onClick when clicked', () => {
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click me</Button>);
+    fireEvent.click(screen.getByText('Click me'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('is accessible', async () => {
+    const { container } = render(<Button>Click me</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+});
+```
+
+### Test Coverage
+- **Minimum 80%**: Maintain at least 80% code coverage
+- **Critical Paths**: Ensure critical user paths are tested
+- **Edge Cases**: Test edge cases and error conditions
+- **Accessibility**: Include accessibility tests
+
+## [STRICT] Development Rules
+
+### Code Quality
+- **ESLint**: Use ESLint for code linting
+- **Prettier**: Use Prettier for code formatting
+- **TypeScript**: Use TypeScript for type safety
+- **Husky**: Use Husky for git hooks
+
+### Git Workflow
+- **Feature Branches**: Use feature branches for development
+- **Conventional Commits**: Use conventional commit messages
+- **Pull Requests**: Require PR reviews before merging
+- **CI/CD**: Use CI/CD for automated testing and deployment
+
+### Documentation
+- **README**: Maintain comprehensive README
+- **API Docs**: Document API interfaces
+- **Component Docs**: Document component props and usage
+- **Deployment**: Document deployment procedures
+
+## [STRICT] Security Rules
+
+### Client Security
+- **XSS Prevention**: Sanitize user input
+- **CSRF Protection**: Implement CSRF tokens
+- **Content Security Policy**: Use CSP headers
+- **Secure Storage**: Use secure storage for sensitive data
+
+### Authentication
+- **Token Management**: Secure token storage and refresh
+- **Session Management**: Implement proper session handling
+- **Authorization**: Implement role-based access control
+- **Logout**: Implement secure logout procedures
+
+## [STRICT] Monitoring Rules
+
+### Observability
+- **Error Tracking**: Track and monitor errors
+- **Performance Monitoring**: Monitor web vitals
+- **User Analytics**: Track user behavior
+- **Uptime Monitoring**: Monitor application availability
+
+### Logging
+- **Structured Logging**: Use structured logging format
+- **Log Levels**: Use appropriate log levels
+- **Sensitive Data**: Avoid logging sensitive information
+- **Log Aggregation**: Use centralized log aggregation
+
+## [STRICT] Deployment Rules
+
+### Build Process
+- **Environment Variables**: Use environment variables for configuration
+- **Build Optimization**: Optimize build for production
+- **Asset Optimization**: Optimize images and assets
+- **Bundle Analysis**: Analyze bundle size and composition
+
+### Deployment
+- **Staging**: Deploy to staging before production
+- **Rollback**: Implement rollback procedures
+- **Health Checks**: Implement health check endpoints
+- **Monitoring**: Monitor deployment success
+
+## [STRICT] Maintenance Rules
+
+### Code Maintenance
+- **Regular Updates**: Keep dependencies updated
+- **Security Patches**: Apply security patches promptly
+- **Performance Reviews**: Regular performance reviews
+- **Code Reviews**: Regular code reviews and refactoring
+
+### Documentation Maintenance
+- **Keep Updated**: Keep documentation current
+- **Version Control**: Version control documentation
+- **User Feedback**: Incorporate user feedback
+- **Best Practices**: Update best practices regularly
