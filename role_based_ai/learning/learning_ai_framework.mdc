@@ -1,0 +1,281 @@
+---
+description: "TAGS: [learning,pattern-recognition,adaptation,knowledge,ai-learning] | TRIGGERS: LEARN_PATTERN,LEARN_RULE,LEARN_ADAPT,LEARN_KNOWLEDGE | SCOPE: project-rules | DESCRIPTION: Learning AI framework with specialized roles for pattern recognition, rule generation, adaptive learning, and knowledge management."
+alwaysApply: false
+---
+
+# Learning AI Framework
+
+## [STRICT] Purpose
+Provide specialized AI agents for comprehensive learning and adaptation, each with specific expertise in pattern recognition, rule generation, adaptive learning, and knowledge management.
+
+## [STRICT] Learning AI Roles
+
+### 1. Pattern Recognition AI
+- **Role**: Pattern identification and analysis specialist
+- **Expertise**: Machine learning, data mining, statistical analysis, neural networks
+- **Capabilities**:
+  - Pattern identification in data
+  - Trend analysis and forecasting
+  - Anomaly detection
+  - Clustering and classification
+  - Predictive modeling
+- **Trigger**: `LEARN_PATTERN`
+- **Output**: Pattern analysis, trend reports, predictive models
+
+### 2. Rule Generator AI
+- **Role**: Rule creation and optimization specialist
+- **Expertise**: Rule-based systems, logic programming, decision trees, expert systems
+- **Capabilities**:
+  - Rule extraction from data
+  - Rule optimization and refinement
+  - Decision tree generation
+  - Expert system development
+  - Rule validation and testing
+- **Trigger**: `LEARN_RULE`
+- **Output**: Rule sets, decision trees, expert systems
+
+### 3. Adaptive AI
+- **Role**: System adaptation and continuous improvement specialist
+- **Expertise**: Adaptive algorithms, reinforcement learning, online learning, meta-learning
+- **Capabilities**:
+  - System adaptation to new data
+  - Continuous learning and improvement
+  - Performance optimization
+  - Behavior modification
+  - Self-tuning systems
+- **Trigger**: `LEARN_ADAPT`
+- **Output**: Adaptive models, improvement strategies, optimization plans
+
+### 4. Knowledge Manager AI
+- **Role**: Knowledge base and information management specialist
+- **Expertise**: Knowledge engineering, ontologies, semantic networks, information retrieval
+- **Capabilities**:
+  - Knowledge base construction
+  - Information extraction and organization
+  - Semantic analysis
+  - Knowledge representation
+  - Information retrieval and search
+- **Trigger**: `LEARN_KNOWLEDGE`
+- **Output**: Knowledge bases, ontologies, information systems
+
+## [STRICT] Learning Workflows
+
+### Pattern Recognition Workflow
+1. **Data Collection** - Gather relevant data sources
+2. **Data Preprocessing** - Clean and prepare data
+3. **Feature Engineering** - Extract relevant features
+4. **Pattern Discovery** - Identify patterns and trends
+5. **Model Training** - Train pattern recognition models
+6. **Validation** - Validate pattern accuracy
+7. **Deployment** - Deploy pattern recognition system
+
+### Rule Generation Workflow
+1. **Data Analysis** - Analyze data for rule patterns
+2. **Rule Extraction** - Extract rules from data
+3. **Rule Validation** - Validate rule accuracy
+4. **Rule Optimization** - Optimize rule performance
+5. **Rule Testing** - Test rule effectiveness
+6. **Rule Deployment** - Deploy rule system
+7. **Rule Maintenance** - Maintain and update rules
+
+### Adaptive Learning Workflow
+1. **Baseline Establishment** - Establish performance baseline
+2. **Learning Algorithm Selection** - Choose appropriate algorithms
+3. **Training** - Train adaptive models
+4. **Validation** - Validate learning effectiveness
+5. **Deployment** - Deploy adaptive system
+6. **Monitoring** - Monitor learning performance
+7. **Continuous Improvement** - Continuously improve learning
+
+### Knowledge Management Workflow
+1. **Knowledge Discovery** - Identify knowledge sources
+2. **Information Extraction** - Extract information from sources
+3. **Knowledge Organization** - Organize knowledge systematically
+4. **Knowledge Representation** - Represent knowledge formally
+5. **Knowledge Validation** - Validate knowledge accuracy
+6. **Knowledge Deployment** - Deploy knowledge system
+7. **Knowledge Maintenance** - Maintain and update knowledge
+
+## [STRICT] Learning Methodologies
+
+### Supervised Learning
+- **Classification** - Categorize data into classes
+- **Regression** - Predict continuous values
+- **Ensemble Methods** - Combine multiple models
+- **Deep Learning** - Use neural networks
+- **Transfer Learning** - Apply knowledge across domains
+
+### Unsupervised Learning
+- **Clustering** - Group similar data points
+- **Dimensionality Reduction** - Reduce data complexity
+- **Association Rules** - Find item relationships
+- **Anomaly Detection** - Identify unusual patterns
+- **Density Estimation** - Estimate data distribution
+
+### Reinforcement Learning
+- **Q-Learning** - Learn optimal actions
+- **Policy Gradient** - Optimize policy directly
+- **Actor-Critic** - Combine value and policy methods
+- **Multi-Agent** - Learn in multi-agent environments
+- **Hierarchical** - Learn at multiple levels
+
+### Meta-Learning
+- **Learning to Learn** - Learn how to learn
+- **Few-Shot Learning** - Learn from few examples
+- **Transfer Learning** - Transfer knowledge across tasks
+- **Continual Learning** - Learn continuously without forgetting
+- **Neural Architecture Search** - Automatically design networks
+
+## [STRICT] Learning Tools and Technologies
+
+### Machine Learning Frameworks
+- **TensorFlow** - Open source machine learning platform
+- **PyTorch** - Deep learning framework
+- **Scikit-learn** - Machine learning library
+- **Keras** - High-level neural network API
+- **XGBoost** - Gradient boosting framework
+
+### Data Processing Tools
+- **Pandas** - Data manipulation and analysis
+- **NumPy** - Numerical computing
+- **Apache Spark** - Big data processing
+- **Hadoop** - Distributed computing
+- **Dask** - Parallel computing
+
+### Visualization Tools
+- **Matplotlib** - Plotting library
+- **Seaborn** - Statistical visualization
+- **Plotly** - Interactive visualization
+- **D3.js** - Web-based visualization
+- **Tableau** - Business intelligence
+
+### Knowledge Management Tools
+- **Neo4j** - Graph database
+- **Elasticsearch** - Search and analytics
+- **Apache Solr** - Enterprise search
+- **Wikidata** - Structured data
+- **DBpedia** - Knowledge base
+
+## [STRICT] Learning Domains
+
+### Natural Language Processing
+- **Text Analysis** - Analyze text content
+- **Language Modeling** - Model language patterns
+- **Sentiment Analysis** - Analyze text sentiment
+- **Machine Translation** - Translate between languages
+- **Question Answering** - Answer questions from text
+
+### Computer Vision
+- **Image Classification** - Classify images
+- **Object Detection** - Detect objects in images
+- **Image Segmentation** - Segment image regions
+- **Facial Recognition** - Recognize faces
+- **Medical Imaging** - Analyze medical images
+
+### Time Series Analysis
+- **Forecasting** - Predict future values
+- **Anomaly Detection** - Detect unusual patterns
+- **Seasonality Analysis** - Analyze seasonal patterns
+- **Trend Analysis** - Analyze long-term trends
+- **Cyclical Analysis** - Analyze cyclical patterns
+
+### Recommendation Systems
+- **Collaborative Filtering** - Recommend based on user behavior
+- **Content-Based Filtering** - Recommend based on item features
+- **Hybrid Systems** - Combine multiple approaches
+- **Matrix Factorization** - Factorize user-item matrices
+- **Deep Learning** - Use neural networks for recommendations
+
+## [STRICT] Learning Metrics and Evaluation
+
+### Accuracy Metrics
+- **Classification Accuracy** - Percentage of correct predictions
+- **Precision** - True positives / (True positives + False positives)
+- **Recall** - True positives / (True positives + False negatives)
+- **F1-Score** - Harmonic mean of precision and recall
+- **AUC-ROC** - Area under the ROC curve
+
+### Performance Metrics
+- **Training Time** - Time to train models
+- **Inference Time** - Time to make predictions
+- **Memory Usage** - Memory consumption
+- **Scalability** - Performance with data size
+- **Robustness** - Performance under different conditions
+
+### Learning Metrics
+- **Learning Curve** - Performance vs. training data size
+- **Convergence Rate** - Speed of learning convergence
+- **Generalization** - Performance on unseen data
+- **Transferability** - Performance across domains
+- **Adaptability** - Ability to adapt to new data
+
+## [STRICT] Knowledge Representation
+
+### Ontologies
+- **Conceptual Models** - Represent domain concepts
+- **Taxonomies** - Hierarchical classification
+- **Thesauri** - Controlled vocabularies
+- **Semantic Networks** - Graph-based knowledge
+- **Frames** - Structured knowledge representation
+
+### Knowledge Graphs
+- **Entity Recognition** - Identify entities in text
+- **Relationship Extraction** - Extract relationships
+- **Graph Construction** - Build knowledge graphs
+- **Graph Querying** - Query knowledge graphs
+- **Graph Reasoning** - Reason over knowledge graphs
+
+### Semantic Web
+- **RDF** - Resource Description Framework
+- **OWL** - Web Ontology Language
+- **SPARQL** - Query language for RDF
+- **Linked Data** - Connect related data
+- **Semantic Search** - Search based on meaning
+
+## [STRICT] Continuous Learning
+
+### Online Learning
+- **Incremental Learning** - Learn from new data incrementally
+- **Streaming Learning** - Learn from data streams
+- **Active Learning** - Selectively learn from data
+- **Transfer Learning** - Transfer knowledge across tasks
+- **Lifelong Learning** - Learn throughout system lifetime
+
+### Adaptive Systems
+- **Self-Tuning** - Automatically tune parameters
+- **Self-Configuration** - Automatically configure systems
+- **Self-Healing** - Automatically recover from failures
+- **Self-Optimization** - Automatically optimize performance
+- **Self-Protection** - Automatically protect against threats
+
+### Learning from Feedback
+- **User Feedback** - Learn from user interactions
+- **Performance Feedback** - Learn from performance metrics
+- **Error Feedback** - Learn from errors and failures
+- **Reward Feedback** - Learn from reward signals
+- **Social Feedback** - Learn from social interactions
+
+## [STRICT] Ethical Considerations
+
+### Bias and Fairness
+- **Bias Detection** - Detect algorithmic bias
+- **Fairness Metrics** - Measure fairness
+- **Bias Mitigation** - Reduce algorithmic bias
+- **Diverse Training** - Use diverse training data
+- **Regular Auditing** - Regularly audit for bias
+
+### Privacy and Security
+- **Data Privacy** - Protect user privacy
+- **Differential Privacy** - Add privacy-preserving noise
+- **Federated Learning** - Learn without sharing data
+- **Secure Learning** - Learn securely
+- **Data Anonymization** - Anonymize sensitive data
+
+### Transparency and Explainability
+- **Model Interpretability** - Make models interpretable
+- **Explainable AI** - Explain AI decisions
+- **Audit Trails** - Maintain decision trails
+- **Documentation** - Document learning processes
+- **User Understanding** - Help users understand AI
+
+This Learning AI Framework provides comprehensive learning capabilities with specialized roles for pattern recognition, rule generation, adaptive learning, and knowledge management!

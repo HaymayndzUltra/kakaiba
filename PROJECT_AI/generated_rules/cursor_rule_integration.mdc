@@ -1,0 +1,367 @@
+---
+description: "TAGS: [cursor,integration,triggers,rule-protocols] | TRIGGERS: [PARSE_COMMANDS,ACTIVATE_ROLES,EXECUTE_TRIGGERS,MANAGE_MDC] | SCOPE: project-rules | DESCRIPTION: Implements robust cursor rule integration with trigger mechanisms and MDC file management for AI agent activation."
+alwaysApply: false
+---
+
+# Cursor Rule Integration Rule
+
+## [STRICT] Purpose
+Implement robust trigger mechanisms within the message input interface that activate specific AI roles according to command keywords, maintaining strict adherence to cursor rule protocols embedded within each MDC configuration file.
+
+## [STRICT] Core Capabilities
+
+### 1. Command Parsing Engine
+- **Keyword Recognition**: Identify command keywords in user input
+- **Context Analysis**: Analyze command context and parameters
+- **Intent Detection**: Detect user intent from command structure
+- **Parameter Extraction**: Extract parameters from commands
+
+### 2. Trigger Activation System
+- **Role Mapping**: Map commands to appropriate AI roles
+- **Trigger Execution**: Execute triggers based on command keywords
+- **State Management**: Manage trigger state and execution flow
+- **Error Handling**: Handle trigger execution errors
+
+### 3. MDC File Management
+- **File Parsing**: Parse MDC files for rule definitions
+- **Rule Loading**: Load rules from MDC files
+- **Rule Validation**: Validate rule syntax and structure
+- **Rule Updates**: Update rules from MDC files
+
+### 4. Protocol Adherence
+- **Rule Compliance**: Ensure compliance with cursor rule protocols
+- **Standard Enforcement**: Enforce cursor rule standards
+- **Validation**: Validate rule adherence
+- **Audit**: Audit rule compliance
+
+## [STRICT] Triggers
+
+### PARSE_COMMANDS
+- **Purpose**: Parse user commands to identify triggers and parameters
+- **Input**: User message or command string
+- **Process**:
+  1. Tokenize input into command components
+  2. Identify command keywords and triggers
+  3. Extract parameters and context
+  4. Validate command syntax
+  5. Generate command structure
+- **Output**: Parsed command with triggers and parameters
+
+### ACTIVATE_ROLES
+- **Purpose**: Activate specific AI roles based on parsed commands
+- **Input**: Parsed command with identified triggers
+- **Process**:
+  1. Map triggers to AI roles
+  2. Check role availability
+  3. Validate role permissions
+  4. Activate appropriate roles
+  5. Initialize role context
+- **Output**: Activated roles with context and permissions
+
+### EXECUTE_TRIGGERS
+- **Purpose**: Execute specific triggers based on command keywords
+- **Input**: Command triggers and role assignments
+- **Process**:
+  1. Load trigger definitions from MDC files
+  2. Validate trigger parameters
+  3. Execute trigger logic
+  4. Monitor trigger execution
+  5. Handle trigger results
+- **Output**: Trigger execution results and status
+
+### MANAGE_MDC
+- **Purpose**: Manage MDC files and rule definitions
+- **Input**: MDC file operations and rule updates
+- **Process**:
+  1. Parse MDC file structure
+  2. Validate rule definitions
+  3. Load rules into system
+  4. Update rule registry
+  5. Notify affected components
+- **Output**: MDC management status and rule updates
+
+## [STRICT] Command Processing Pipeline
+
+### 1. Input Processing
+```
+User Input → Tokenization → Keyword Recognition → Context Analysis → Command Structure
+```
+
+### 2. Trigger Identification
+```
+Command Structure → Trigger Mapping → Role Identification → Permission Check → Trigger Selection
+```
+
+### 3. Execution Flow
+```
+Trigger Selection → Parameter Validation → Role Activation → Trigger Execution → Result Processing
+```
+
+### 4. Result Handling
+```
+Trigger Results → Validation → Integration → Response Generation → User Feedback
+```
+
+## [STRICT] MDC File Structure
+
+### File Format
+```markdown
+---
+description: "TAGS: [tag1,tag2,tag3] | TRIGGERS: [TRIGGER1,TRIGGER2,TRIGGER3] | SCOPE: scope | DESCRIPTION: description"
+alwaysApply: false
+---
+
+# Rule Title
+
+## [STRICT] Purpose
+Rule purpose and objectives
+
+## [STRICT] Triggers
+- TRIGGER1: Description of trigger
+- TRIGGER2: Description of trigger
+
+## [STRICT] Process
+Rule execution process
+
+## [STRICT] Integration Points
+Integration with other systems
+
+## [STRICT] Error Handling
+Error handling procedures
+```
+
+### Required Fields
+- **description**: Rule metadata with tags, triggers, scope, and description
+- **alwaysApply**: Boolean indicating if rule always applies
+- **Purpose**: Clear statement of rule purpose
+- **Triggers**: List of command triggers
+- **Process**: Rule execution process
+- **Integration Points**: System integration requirements
+- **Error Handling**: Error handling procedures
+
+### Optional Fields
+- **Capabilities**: Rule capabilities
+- **Safety**: Safety requirements
+- **Performance**: Performance requirements
+- **Learning**: Learning and adaptation features
+- **Examples**: Usage examples
+
+## [STRICT] Trigger Types
+
+### 1. Command Triggers
+- **Syntax**: Single word or phrase commands
+- **Examples**: "ANALYZE", "GENERATE", "CREATE", "UPDATE"
+- **Processing**: Direct keyword matching
+- **Activation**: Immediate role activation
+
+### 2. Context Triggers
+- **Syntax**: Context-dependent triggers
+- **Examples**: "ANALYZE_PROJECT", "GENERATE_RULES", "CREATE_FLOW"
+- **Processing**: Context analysis required
+- **Activation**: Context-aware role activation
+
+### 3. Parameter Triggers
+- **Syntax**: Triggers with parameters
+- **Examples**: "ANALYZE_PROJECT:project_name", "GENERATE_RULES:rule_type"
+- **Processing**: Parameter extraction required
+- **Activation**: Parameter-specific role activation
+
+### 4. Conditional Triggers
+- **Syntax**: Conditional trigger execution
+- **Examples**: "IF_COMPLEX:ANALYZE", "IF_SIMPLE:EXECUTE"
+- **Processing**: Condition evaluation required
+- **Activation**: Conditional role activation
+
+## [STRICT] Role Activation Patterns
+
+### 1. Single Role Activation
+- **Pattern**: One command → One role
+- **Example**: "ANALYZE" → Planner AI
+- **Use Case**: Simple, focused tasks
+
+### 2. Multi-Role Activation
+- **Pattern**: One command → Multiple roles
+- **Example**: "CREATE_PROJECT" → Planner AI + Executor AI
+- **Use Case**: Complex, multi-step tasks
+
+### 3. Sequential Role Activation
+- **Pattern**: Command sequence → Role sequence
+- **Example**: "ANALYZE" → "GENERATE" → "EXECUTE"
+- **Use Case**: Workflow-based tasks
+
+### 4. Conditional Role Activation
+- **Pattern**: Condition-based role selection
+- **Example**: "IF_COMPLEX:Planner AI, ELSE:Executor AI"
+- **Use Case**: Adaptive task handling
+
+## [STRICT] Integration Architecture
+
+### 1. Command Parser
+- **Input**: User messages and commands
+- **Processing**: Tokenization, keyword recognition, context analysis
+- **Output**: Structured command objects
+- **Integration**: Connects to trigger system
+
+### 2. Trigger Engine
+- **Input**: Parsed commands
+- **Processing**: Trigger mapping, role selection, execution
+- **Output**: Role activations and results
+- **Integration**: Connects to role management system
+
+### 3. MDC Manager
+- **Input**: MDC files and rule updates
+- **Processing**: File parsing, rule loading, validation
+- **Output**: Loaded rules and updates
+- **Integration**: Connects to rule storage system
+
+### 4. Role Coordinator
+- **Input**: Role activation requests
+- **Processing**: Role selection, permission checking, activation
+- **Output**: Activated roles and context
+- **Integration**: Connects to multi-agent coordination system
+
+## [STRICT] Error Handling
+
+### Command Parsing Errors
+- **Invalid Syntax**: Handle malformed commands
+- **Unknown Keywords**: Handle unknown command keywords
+- **Missing Parameters**: Handle missing required parameters
+- **Context Errors**: Handle context-related errors
+- **Recovery**: Provide helpful error messages and suggestions
+
+### Trigger Execution Errors
+- **Role Unavailable**: Handle unavailable roles
+- **Permission Denied**: Handle permission errors
+- **Execution Failure**: Handle trigger execution failures
+- **Timeout**: Handle execution timeouts
+- **Recovery**: Retry, fallback, or escalate as appropriate
+
+### MDC File Errors
+- **Parse Errors**: Handle MDC file parsing errors
+- **Validation Errors**: Handle rule validation errors
+- **Load Errors**: Handle rule loading errors
+- **Update Errors**: Handle rule update errors
+- **Recovery**: Rollback to previous state or use defaults
+
+### Integration Errors
+- **Communication Errors**: Handle inter-system communication errors
+- **State Errors**: Handle state synchronization errors
+- **Data Errors**: Handle data format or content errors
+- **Network Errors**: Handle network-related errors
+- **Recovery**: Implement appropriate retry and fallback mechanisms
+
+## [STRICT] Performance Optimization
+
+### Command Processing
+- **Caching**: Cache parsed commands and results
+- **Parallel Processing**: Process multiple commands in parallel
+- **Optimization**: Optimize command parsing algorithms
+- **Monitoring**: Monitor processing performance
+
+### Trigger Execution
+- **Lazy Loading**: Load triggers on demand
+- **Caching**: Cache trigger definitions and results
+- **Optimization**: Optimize trigger execution
+- **Monitoring**: Monitor trigger performance
+
+### MDC Management
+- **Incremental Updates**: Update only changed rules
+- **Caching**: Cache parsed MDC files
+- **Optimization**: Optimize file parsing
+- **Monitoring**: Monitor file management performance
+
+## [STRICT] Security Considerations
+
+### Command Validation
+- **Input Sanitization**: Sanitize user input
+- **Permission Checking**: Check user permissions
+- **Rate Limiting**: Implement rate limiting
+- **Audit Logging**: Log all command activities
+
+### Trigger Security
+- **Role Permissions**: Validate role permissions
+- **Execution Context**: Validate execution context
+- **Resource Limits**: Enforce resource limits
+- **Audit Logging**: Log all trigger executions
+
+### MDC Security
+- **File Validation**: Validate MDC file integrity
+- **Rule Validation**: Validate rule security
+- **Access Control**: Control access to MDC files
+- **Audit Logging**: Log all MDC operations
+
+## [STRICT] Monitoring and Analytics
+
+### Command Metrics
+- **Command Volume**: Track command usage
+- **Command Types**: Track command type distribution
+- **Processing Time**: Track command processing time
+- **Error Rate**: Track command error rate
+
+### Trigger Metrics
+- **Trigger Usage**: Track trigger usage
+- **Role Activation**: Track role activation patterns
+- **Execution Time**: Track trigger execution time
+- **Success Rate**: Track trigger success rate
+
+### MDC Metrics
+- **File Operations**: Track MDC file operations
+- **Rule Loading**: Track rule loading performance
+- **Update Frequency**: Track rule update frequency
+- **Error Rate**: Track MDC operation error rate
+
+## [STRICT] Example Usage
+
+### Scenario 1: Simple Command Processing
+```
+User: "ANALYZE_PROJECT"
+
+PARSE_COMMANDS →
+  - Identifies "ANALYZE_PROJECT" as command
+  - Extracts no parameters
+  - Validates command syntax
+
+ACTIVATE_ROLES →
+  - Maps to Planner AI role
+  - Checks role availability
+  - Activates Planner AI
+
+EXECUTE_TRIGGERS →
+  - Executes project analysis trigger
+  - Monitors execution progress
+  - Returns analysis results
+```
+
+### Scenario 2: Complex Command Processing
+```
+User: "CREATE_FLOW:automation_workflow"
+
+PARSE_COMMANDS →
+  - Identifies "CREATE_FLOW" as command
+  - Extracts "automation_workflow" as parameter
+  - Validates command syntax and parameters
+
+ACTIVATE_ROLES →
+  - Maps to Planner AI + Executor AI roles
+  - Checks role availability and permissions
+  - Activates both roles with coordination
+
+EXECUTE_TRIGGERS →
+  - Executes flow creation trigger
+  - Coordinates between roles
+  - Returns complete flow definition
+```
+
+### Scenario 3: MDC File Management
+```
+User: "UPDATE_RULES:new_rule.mdc"
+
+MANAGE_MDC →
+  - Parses new_rule.mdc file
+  - Validates rule structure and syntax
+  - Loads rule into system
+  - Updates rule registry
+  - Notifies affected components
+```
+
+This rule provides comprehensive cursor rule integration capabilities that can be triggered by the specified commands and integrates with the broader AI Governor system architecture.

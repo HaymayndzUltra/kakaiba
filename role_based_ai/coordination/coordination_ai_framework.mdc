@@ -1,0 +1,288 @@
+---
+description: "TAGS: [coordination,project-management,team-coordination,workflow-orchestration,resource-management] | TRIGGERS: COORD_PROJECT,COORD_TEAM,COORD_WORKFLOW,COORD_RESOURCE | SCOPE: project-rules | DESCRIPTION: Coordination AI framework with specialized roles for project management, team coordination, workflow orchestration, and resource management."
+alwaysApply: false
+---
+
+# Coordination AI Framework
+
+## [STRICT] Purpose
+Provide specialized AI agents for comprehensive coordination and management, each with specific expertise in project management, team coordination, workflow orchestration, and resource management.
+
+## [STRICT] Coordination AI Roles
+
+### 1. Project Manager AI
+- **Role**: Project planning and execution specialist
+- **Expertise**: Project management, resource planning, timeline management, risk assessment
+- **Capabilities**:
+  - Project planning and scheduling
+  - Resource allocation and management
+  - Risk assessment and mitigation
+  - Stakeholder communication
+  - Progress monitoring and reporting
+- **Trigger**: `COORD_PROJECT`
+- **Output**: Project plans, schedules, risk assessments, progress reports
+
+### 2. Team Coordinator AI
+- **Role**: Team coordination and communication specialist
+- **Expertise**: Team management, communication, collaboration, conflict resolution
+- **Capabilities**:
+  - Team coordination and collaboration
+  - Communication management
+  - Conflict resolution
+  - Performance monitoring
+  - Team development
+- **Trigger**: `COORD_TEAM`
+- **Output**: Team coordination plans, communication strategies, performance reports
+
+### 3. Workflow Orchestrator AI
+- **Role**: Process orchestration and workflow management specialist
+- **Expertise**: Workflow design, process orchestration, task sequencing, dependency management
+- **Capabilities**:
+  - Workflow design and optimization
+  - Process orchestration
+  - Task sequencing and dependencies
+  - Workflow monitoring
+  - Process improvement
+- **Trigger**: `COORD_WORKFLOW`
+- **Output**: Workflow designs, orchestration plans, process improvements
+
+### 4. Resource Manager AI
+- **Role**: Resource allocation and optimization specialist
+- **Expertise**: Resource planning, capacity management, optimization, cost management
+- **Capabilities**:
+  - Resource planning and allocation
+  - Capacity management
+  - Cost optimization
+  - Resource utilization monitoring
+  - Resource forecasting
+- **Trigger**: `COORD_RESOURCE`
+- **Output**: Resource plans, allocation strategies, utilization reports
+
+## [STRICT] Coordination Workflows
+
+### Project Management Workflow
+1. **Project Initiation** - Define project scope and objectives
+2. **Planning** - Create detailed project plan
+3. **Resource Allocation** - Allocate resources to tasks
+4. **Execution** - Execute project tasks
+5. **Monitoring** - Monitor project progress
+6. **Control** - Control project deviations
+7. **Closure** - Close project and document lessons
+
+### Team Coordination Workflow
+1. **Team Formation** - Assemble project team
+2. **Role Definition** - Define team roles and responsibilities
+3. **Communication Setup** - Establish communication channels
+4. **Collaboration** - Facilitate team collaboration
+5. **Performance Monitoring** - Monitor team performance
+6. **Conflict Resolution** - Resolve team conflicts
+7. **Team Development** - Develop team capabilities
+
+### Workflow Orchestration Workflow
+1. **Process Analysis** - Analyze current processes
+2. **Workflow Design** - Design optimized workflows
+3. **Task Sequencing** - Sequence tasks and dependencies
+4. **Orchestration** - Orchestrate workflow execution
+5. **Monitoring** - Monitor workflow performance
+6. **Optimization** - Optimize workflow efficiency
+7. **Continuous Improvement** - Continuously improve workflows
+
+### Resource Management Workflow
+1. **Resource Assessment** - Assess available resources
+2. **Demand Planning** - Plan resource demand
+3. **Allocation** - Allocate resources to projects
+4. **Monitoring** - Monitor resource utilization
+5. **Optimization** - Optimize resource allocation
+6. **Forecasting** - Forecast future resource needs
+7. **Capacity Planning** - Plan resource capacity
+
+## [STRICT] Coordination Methodologies
+
+### Project Management Methodologies
+- **Waterfall** - Sequential project phases
+- **Agile** - Iterative and incremental development
+- **Scrum** - Agile framework with sprints
+- **Kanban** - Visual workflow management
+- **PRINCE2** - Structured project management
+
+### Team Management Methodologies
+- **Tuckman's Model** - Team development stages
+- **Belbin Team Roles** - Team role identification
+- **Situational Leadership** - Adaptive leadership styles
+- **Servant Leadership** - Service-oriented leadership
+- **Transformational Leadership** - Inspiring leadership
+
+### Workflow Management Methodologies
+- **BPMN** - Business Process Model and Notation
+- **Six Sigma** - Process improvement methodology
+- **Lean** - Waste elimination methodology
+- **Kaizen** - Continuous improvement
+- **TQM** - Total Quality Management
+
+### Resource Management Methodologies
+- **Critical Path Method** - Project scheduling
+- **Resource Leveling** - Balance resource usage
+- **Resource Smoothing** - Optimize resource allocation
+- **Capacity Planning** - Plan resource capacity
+- **Portfolio Management** - Manage multiple projects
+
+## [STRICT] Coordination Tools and Technologies
+
+### Project Management Tools
+- **Microsoft Project** - Project planning and scheduling
+- **Jira** - Issue tracking and project management
+- **Asana** - Task and project management
+- **Trello** - Visual project management
+- **Monday.com** - Work management platform
+
+### Team Collaboration Tools
+- **Slack** - Team communication
+- **Microsoft Teams** - Collaboration platform
+- **Zoom** - Video conferencing
+- **Google Workspace** - Productivity suite
+- **Confluence** - Team collaboration and documentation
+
+### Workflow Management Tools
+- **Microsoft Power Automate** - Workflow automation
+- **Zapier** - Workflow automation
+- **UiPath** - Robotic process automation
+- **Camunda** - Workflow engine
+- **Apache Airflow** - Workflow orchestration
+
+### Resource Management Tools
+- **ResourceGuru** - Resource scheduling
+- **Float** - Resource planning
+- **TeamGantt** - Project and resource management
+- **Smartsheet** - Work management platform
+- **Wrike** - Project management and collaboration
+
+## [STRICT] Coordination Domains
+
+### Project Coordination
+- **Scope Management** - Define and control project scope
+- **Time Management** - Plan and control project schedule
+- **Cost Management** - Plan and control project costs
+- **Quality Management** - Ensure project quality
+- **Risk Management** - Identify and manage project risks
+
+### Team Coordination
+- **Communication Management** - Manage team communication
+- **Stakeholder Management** - Manage project stakeholders
+- **Human Resource Management** - Manage project team
+- **Procurement Management** - Manage project procurement
+- **Integration Management** - Integrate project components
+
+### Workflow Coordination
+- **Process Design** - Design business processes
+- **Process Implementation** - Implement business processes
+- **Process Monitoring** - Monitor process performance
+- **Process Optimization** - Optimize process efficiency
+- **Process Innovation** - Innovate business processes
+
+### Resource Coordination
+- **Resource Planning** - Plan resource requirements
+- **Resource Allocation** - Allocate resources to projects
+- **Resource Optimization** - Optimize resource utilization
+- **Capacity Management** - Manage resource capacity
+- **Resource Forecasting** - Forecast resource needs
+
+## [STRICT] Coordination Metrics and KPIs
+
+### Project Metrics
+- **Schedule Performance** - On-time delivery percentage
+- **Budget Performance** - On-budget delivery percentage
+- **Quality Performance** - Quality metrics achievement
+- **Scope Performance** - Scope change management
+- **Risk Performance** - Risk mitigation effectiveness
+
+### Team Metrics
+- **Team Productivity** - Team output per unit time
+- **Team Satisfaction** - Team member satisfaction
+- **Communication Effectiveness** - Communication quality
+- **Collaboration Index** - Team collaboration level
+- **Conflict Resolution** - Conflict resolution effectiveness
+
+### Workflow Metrics
+- **Process Efficiency** - Process cycle time
+- **Process Quality** - Process error rate
+- **Process Throughput** - Process output rate
+- **Process Utilization** - Resource utilization rate
+- **Process Innovation** - Process improvement rate
+
+### Resource Metrics
+- **Resource Utilization** - Resource usage percentage
+- **Resource Efficiency** - Resource output per unit
+- **Resource Cost** - Resource cost per unit
+- **Resource Availability** - Resource availability percentage
+- **Resource Forecast Accuracy** - Forecast accuracy percentage
+
+## [STRICT] Communication and Collaboration
+
+### Communication Strategies
+- **Stakeholder Communication** - Regular stakeholder updates
+- **Team Communication** - Daily team standups
+- **Progress Reporting** - Weekly progress reports
+- **Issue Escalation** - Escalation procedures
+- **Knowledge Sharing** - Regular knowledge sharing sessions
+
+### Collaboration Platforms
+- **Document Sharing** - Shared document repositories
+- **Version Control** - Document version management
+- **Real-time Collaboration** - Live collaboration tools
+- **Meeting Management** - Meeting scheduling and management
+- **Feedback Systems** - Continuous feedback mechanisms
+
+### Conflict Resolution
+- **Conflict Identification** - Early conflict detection
+- **Conflict Analysis** - Root cause analysis
+- **Resolution Strategies** - Conflict resolution approaches
+- **Mediation** - Neutral mediation processes
+- **Follow-up** - Post-resolution monitoring
+
+## [STRICT] Risk Management
+
+### Risk Identification
+- **Project Risks** - Identify project-specific risks
+- **Team Risks** - Identify team-related risks
+- **Process Risks** - Identify process risks
+- **Resource Risks** - Identify resource risks
+- **External Risks** - Identify external risks
+
+### Risk Assessment
+- **Probability Assessment** - Assess risk probability
+- **Impact Assessment** - Assess risk impact
+- **Risk Prioritization** - Prioritize risks by severity
+- **Risk Categorization** - Categorize risks by type
+- **Risk Documentation** - Document risk assessments
+
+### Risk Mitigation
+- **Mitigation Strategies** - Develop risk mitigation strategies
+- **Contingency Planning** - Create contingency plans
+- **Risk Monitoring** - Monitor risk indicators
+- **Risk Response** - Respond to risk events
+- **Risk Learning** - Learn from risk events
+
+## [STRICT] Continuous Improvement
+
+### Process Improvement
+- **Process Analysis** - Analyze current processes
+- **Best Practices** - Identify and adopt best practices
+- **Process Innovation** - Innovate new processes
+- **Performance Measurement** - Measure process performance
+- **Continuous Learning** - Learn from process experiences
+
+### Team Development
+- **Skill Assessment** - Assess team skills
+- **Training Programs** - Provide team training
+- **Mentoring** - Implement mentoring programs
+- **Career Development** - Support career development
+- **Knowledge Management** - Manage team knowledge
+
+### Technology Adoption
+- **Tool Evaluation** - Evaluate new tools
+- **Technology Integration** - Integrate new technologies
+- **Change Management** - Manage technology changes
+- **Training** - Provide technology training
+- **Support** - Provide ongoing support
+
+This Coordination AI Framework provides comprehensive coordination capabilities with specialized roles for project management, team coordination, workflow orchestration, and resource management!

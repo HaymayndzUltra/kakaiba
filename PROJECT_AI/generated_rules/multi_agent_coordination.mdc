@@ -1,0 +1,303 @@
+---
+description: "TAGS: [multi-agent,coordination,orchestration,role-management] | TRIGGERS: [COORDINATE_AGENTS,MANAGE_WORKFLOW,ASSIGN_TASKS,INITIATE_PROJECT] | SCOPE: project-rules | DESCRIPTION: Orchestrates multi-agent AI systems with role-based task assignment and workflow coordination."
+alwaysApply: false
+---
+
+# Multi-Agent Coordination Rule
+
+## [STRICT] Purpose
+Coordinate multiple AI agents in a role-based system to execute complex projects through intelligent task assignment, workflow orchestration, and inter-agent communication.
+
+## [STRICT] Core Capabilities
+
+### 1. Role-Based Agent Management
+- **Agent Registration**: Register and manage different AI agent types
+- **Capability Mapping**: Map agent capabilities to project requirements
+- **Role Assignment**: Assign appropriate agents to specific tasks
+- **Agent Lifecycle**: Manage agent creation, activation, and deactivation
+
+### 2. Workflow Orchestration
+- **Project Analysis**: Analyze incoming projects to determine requirements
+- **Task Decomposition**: Break down complex projects into manageable tasks
+- **Dependency Management**: Handle task dependencies and sequencing
+- **Progress Tracking**: Monitor and track task execution progress
+
+### 3. Inter-Agent Communication
+- **Message Routing**: Route messages between agents
+- **State Synchronization**: Keep agent states synchronized
+- **Conflict Resolution**: Resolve conflicts between agent actions
+- **Result Aggregation**: Combine results from multiple agents
+
+### 4. Quality Assurance
+- **Output Validation**: Validate agent outputs before integration
+- **Consistency Checking**: Ensure consistency across agent outputs
+- **Error Detection**: Detect and handle agent errors
+- **Recovery Procedures**: Implement recovery from agent failures
+
+## [STRICT] Triggers
+
+### COORDINATE_AGENTS
+- **Purpose**: Coordinate multiple agents for a specific project
+- **Input**: Project requirements and available agents
+- **Process**:
+  1. Analyze project requirements
+  2. Identify required agent types
+  3. Select appropriate agents
+  4. Assign tasks to agents
+  5. Monitor execution progress
+- **Output**: Coordinated agent execution plan
+
+### MANAGE_WORKFLOW
+- **Purpose**: Manage the overall workflow of a multi-agent project
+- **Input**: Project definition and agent assignments
+- **Process**:
+  1. Create workflow sequence
+  2. Define handoff points
+  3. Set up monitoring
+  4. Execute workflow
+  5. Handle exceptions
+- **Output**: Managed workflow execution
+
+### ASSIGN_TASKS
+- **Purpose**: Assign specific tasks to appropriate agents
+- **Input**: Task list and agent capabilities
+- **Process**:
+  1. Match tasks to agent capabilities
+  2. Consider agent availability
+  3. Optimize task distribution
+  4. Assign tasks with dependencies
+  5. Validate assignments
+- **Output**: Task assignment plan
+
+### INITIATE_PROJECT
+- **Purpose**: Initialize a new multi-agent project
+- **Input**: Project brief and requirements
+- **Process**:
+  1. Parse project requirements
+  2. Identify required roles
+  3. Select available agents
+  4. Create project plan
+  5. Initialize coordination
+- **Output**: Initialized project with agent assignments
+
+## [STRICT] Process Flow
+
+### 1. Project Initialization
+```
+Project Brief → Requirements Analysis → Role Identification → Agent Selection → Project Plan
+```
+
+### 2. Task Assignment
+```
+Task List → Capability Matching → Availability Check → Assignment → Validation
+```
+
+### 3. Execution Monitoring
+```
+Task Execution → Progress Monitoring → Error Detection → Recovery → Completion
+```
+
+### 4. Result Integration
+```
+Agent Outputs → Validation → Integration → Quality Check → Final Result
+```
+
+## [STRICT] Agent Role Definitions
+
+### Planner AI
+- **Purpose**: Project planning and task decomposition
+- **Capabilities**: Requirements analysis, task breakdown, resource estimation
+- **Triggers**: ["PLAN_PROJECT", "DECOMPOSE_TASKS", "ESTIMATE_RESOURCES"]
+- **Outputs**: Project plans, task lists, resource estimates
+
+### Executor AI
+- **Purpose**: Task execution and implementation
+- **Capabilities**: Code generation, implementation, testing
+- **Triggers**: ["EXECUTE_TASK", "IMPLEMENT_SOLUTION", "RUN_TESTS"]
+- **Outputs**: Implemented solutions, test results, execution reports
+
+### Audit AI
+- **Purpose**: Quality assurance and validation
+- **Capabilities**: Code review, quality assessment, compliance checking
+- **Triggers**: ["AUDIT_OUTPUT", "VALIDATE_QUALITY", "CHECK_COMPLIANCE"]
+- **Outputs**: Audit reports, quality scores, compliance status
+
+### Coordinator AI
+- **Purpose**: Inter-agent coordination and communication
+- **Capabilities**: Message routing, conflict resolution, state management
+- **Triggers**: ["COORDINATE_AGENTS", "RESOLVE_CONFLICTS", "MANAGE_STATE"]
+- **Outputs**: Coordination plans, conflict resolutions, state updates
+
+### Learning AI
+- **Purpose**: Pattern recognition and continuous improvement
+- **Capabilities**: Pattern analysis, rule generation, system optimization
+- **Triggers**: ["LEARN_PATTERNS", "GENERATE_RULES", "OPTIMIZE_SYSTEM"]
+- **Outputs**: Learned patterns, new rules, optimization recommendations
+
+## [STRICT] Integration Points
+
+### Rule Storage System
+- **Purpose**: Store and retrieve agent coordination rules
+- **Interface**: Database API for rule CRUD operations
+- **Data Flow**: Rule definitions → Storage → Retrieval → Application
+
+### Message Queue System
+- **Purpose**: Handle inter-agent communication
+- **Interface**: Message queue API for async communication
+- **Data Flow**: Agent messages → Queue → Routing → Delivery
+
+### State Management System
+- **Purpose**: Maintain system and agent state
+- **Interface**: State management API for state operations
+- **Data Flow**: State updates → Storage → Retrieval → Synchronization
+
+### Monitoring System
+- **Purpose**: Monitor system health and performance
+- **Interface**: Monitoring API for metrics and alerts
+- **Data Flow**: Metrics collection → Analysis → Alerts → Actions
+
+## [STRICT] Error Handling
+
+### Agent Failure Recovery
+- **Detection**: Monitor agent health and response times
+- **Recovery**: Restart failed agents or reassign tasks
+- **Escalation**: Notify system administrators for critical failures
+- **Fallback**: Use backup agents or simplified workflows
+
+### Communication Failures
+- **Detection**: Monitor message delivery and response times
+- **Recovery**: Retry failed communications with exponential backoff
+- **Escalation**: Switch to alternative communication channels
+- **Fallback**: Use synchronous communication as backup
+
+### Task Assignment Conflicts
+- **Detection**: Identify conflicting task assignments
+- **Recovery**: Reassign tasks to available agents
+- **Escalation**: Use conflict resolution algorithms
+- **Fallback**: Manual intervention for complex conflicts
+
+### State Synchronization Issues
+- **Detection**: Monitor state consistency across agents
+- **Recovery**: Synchronize states using latest valid state
+- **Escalation**: Reset system state if corruption detected
+- **Fallback**: Restart affected agents with clean state
+
+## [STRICT] Safety Protocols
+
+### Pre-Execution Validation
+- **Agent Capability Check**: Verify agents can handle assigned tasks
+- **Resource Availability**: Ensure sufficient resources for execution
+- **Dependency Validation**: Verify all dependencies are satisfied
+- **Safety Compliance**: Check safety requirements are met
+
+### During Execution Monitoring
+- **Progress Tracking**: Monitor task execution progress
+- **Error Detection**: Detect and handle execution errors
+- **Resource Monitoring**: Monitor resource usage and availability
+- **Safety Compliance**: Ensure ongoing safety compliance
+
+### Post-Execution Validation
+- **Output Validation**: Validate agent outputs meet requirements
+- **Quality Assessment**: Assess output quality and completeness
+- **Integration Testing**: Test integrated results
+- **Safety Verification**: Verify final results meet safety standards
+
+## [STRICT] Performance Optimization
+
+### Load Balancing
+- **Task Distribution**: Distribute tasks evenly across available agents
+- **Resource Optimization**: Optimize resource usage across agents
+- **Capacity Planning**: Plan for peak load scenarios
+- **Scaling**: Scale agent capacity based on demand
+
+### Caching Strategies
+- **Result Caching**: Cache frequently used results
+- **Pattern Caching**: Cache learned patterns and rules
+- **State Caching**: Cache agent states for quick recovery
+- **Configuration Caching**: Cache system configurations
+
+### Parallel Processing
+- **Task Parallelization**: Execute independent tasks in parallel
+- **Agent Parallelization**: Use multiple agents for single tasks
+- **Pipeline Processing**: Process tasks in parallel pipelines
+- **Batch Processing**: Process multiple tasks in batches
+
+## [STRICT] Success Metrics
+
+### Coordination Effectiveness
+- **Task Assignment Success Rate**: >95%
+- **Agent Utilization**: >80%
+- **Communication Efficiency**: <100ms average latency
+- **Conflict Resolution Rate**: >90%
+
+### System Performance
+- **Response Time**: <2 seconds for task assignment
+- **Throughput**: >100 tasks per minute
+- **Availability**: >99.5% uptime
+- **Error Rate**: <1% for coordinated tasks
+
+### Quality Metrics
+- **Output Quality Score**: >4.5/5
+- **Integration Success Rate**: >95%
+- **User Satisfaction**: >4.5/5
+- **Learning Effectiveness**: >90% pattern recognition
+
+## [STRICT] Learning and Adaptation
+
+### Pattern Recognition
+- **Workflow Patterns**: Learn common workflow patterns
+- **Agent Interaction Patterns**: Learn effective agent interactions
+- **Error Patterns**: Learn common error patterns and solutions
+- **Optimization Patterns**: Learn optimization opportunities
+
+### Rule Generation
+- **Coordination Rules**: Generate new coordination rules
+- **Communication Rules**: Generate communication optimization rules
+- **Error Handling Rules**: Generate error handling rules
+- **Performance Rules**: Generate performance optimization rules
+
+### Continuous Improvement
+- **Performance Monitoring**: Continuously monitor system performance
+- **Pattern Analysis**: Analyze patterns for improvement opportunities
+- **Rule Evolution**: Evolve rules based on new patterns
+- **System Optimization**: Optimize system based on learned patterns
+
+## [STRICT] Example Usage
+
+### Scenario 1: Software Development Project
+```
+User: "Develop a full-stack web application with React frontend and Node.js backend"
+
+COORDINATE_AGENTS → 
+  - Planner AI: Creates project plan and task breakdown
+  - Executor AI: Implements frontend and backend components
+  - Audit AI: Reviews code quality and security
+  - Coordinator AI: Manages handoffs and communication
+  - Learning AI: Learns patterns for future similar projects
+```
+
+### Scenario 2: Data Analysis Project
+```
+User: "Analyze customer data and generate insights report"
+
+COORDINATE_AGENTS →
+  - Planner AI: Defines analysis approach and data requirements
+  - Executor AI: Performs data processing and analysis
+  - Audit AI: Validates analysis results and methodology
+  - Coordinator AI: Coordinates data flow and result integration
+  - Learning AI: Learns analysis patterns for future projects
+```
+
+### Scenario 3: System Integration Project
+```
+User: "Integrate multiple APIs and create unified interface"
+
+COORDINATE_AGENTS →
+  - Planner AI: Designs integration architecture
+  - Executor AI: Implements API integrations
+  - Audit AI: Tests integration reliability and security
+  - Coordinator AI: Manages API coordination and error handling
+  - Learning AI: Learns integration patterns and best practices
+```
+
+This rule provides comprehensive multi-agent coordination capabilities that can be triggered by the specified commands and integrates with the broader AI Governor system architecture.

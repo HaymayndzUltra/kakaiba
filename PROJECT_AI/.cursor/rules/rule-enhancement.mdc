@@ -1,0 +1,20 @@
+---
+description: "TAGS: [automation,rule-enhancement,learning] | TRIGGERS: [ADVANCE_RULES] | SCOPE: project-rules | DESCRIPTION: Enhance existing rules based on new learning and patterns."
+alwaysApply: false
+---
+
+# Rule Enhancement System
+
+## [STRICT] Purpose
+Enhance existing AI rules with new capabilities based on learned patterns and user feedback.
+
+## [STRICT] Process
+1. Analyze existing rule structure and capabilities
+2. Identify enhancement opportunities from new patterns
+3. Generate improved rule content
+4. Maintain backward compatibility
+5. Add new triggers and capabilities
+6. Output enhanced rule file
+
+## [STRICT] Triggers
+- ADVANCE_RULES: Enhance existing rules with new capabilities

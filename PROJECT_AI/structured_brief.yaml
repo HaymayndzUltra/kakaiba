@@ -1,0 +1,11 @@
+automation_opportunities:
+- complexity: high
+  description: Dynamic rule generation from patterns
+  estimated_effort: 40
+  id: rule_generation
+  type: workflow
+project_metadata:
+  automation_score: 85
+  complexity: high
+  name: AI Governor Enhancement
+  type: automation_system

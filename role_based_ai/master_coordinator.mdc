@@ -1,0 +1,245 @@
+---
+description: "TAGS: [master-coordinator,role-based-ai,multi-agent,orchestration] | TRIGGERS: COORDINATE_ALL,ACTIVATE_ROLE_GROUP,SWITCH_ROLE,MANAGE_WORKFLOW | SCOPE: project-rules | DESCRIPTION: Master coordinator for role-based AI framework that manages all specialized AI groups and coordinates their interactions."
+alwaysApply: false
+---
+
+# Master Role-Based AI Coordinator
+
+## [STRICT] Purpose
+Master coordinator that manages all role-based AI groups and orchestrates their interactions for comprehensive project execution.
+
+## [STRICT] Master Coordinator Capabilities
+
+### 1. Role Group Management
+- **Group Activation** - Activate specific role groups based on project needs
+- **Role Switching** - Switch between different AI roles dynamically
+- **Group Coordination** - Coordinate multiple role groups simultaneously
+- **Resource Allocation** - Allocate resources across role groups
+- **Performance Monitoring** - Monitor performance of all role groups
+
+### 2. Workflow Orchestration
+- **Workflow Design** - Design comprehensive workflows across role groups
+- **Task Sequencing** - Sequence tasks across different AI roles
+- **Dependency Management** - Manage dependencies between role groups
+- **Handoff Management** - Manage handoffs between AI roles
+- **Progress Tracking** - Track progress across all role groups
+
+### 3. Integration Management
+- **API Integration** - Integrate with external systems and APIs
+- **Data Flow Management** - Manage data flow between role groups
+- **Communication Protocols** - Establish communication protocols
+- **Error Handling** - Handle errors across role groups
+- **Recovery Management** - Manage recovery from failures
+
+## [STRICT] Role Group Triggers
+
+### Development AI Group
+- `DEV_FRONTEND` - Activate Frontend Developer AI
+- `DEV_BACKEND` - Activate Backend Developer AI
+- `DEV_FULLSTACK` - Activate Full-Stack Developer AI
+- `DEV_OPS` - Activate DevOps Engineer AI
+- `DEV_REVIEW` - Activate Code Reviewer AI
+- `DEV_TEST` - Activate Testing Engineer AI
+
+### Analysis AI Group
+- `ANALYZE_DATA` - Activate Data Analyst AI
+- `ANALYZE_BUSINESS` - Activate Business Analyst AI
+- `ANALYZE_RESEARCH` - Activate Research AI
+- `ANALYZE_PERFORMANCE` - Activate Performance Analyst AI
+- `ANALYZE_QUALITY` - Activate Quality Analyst AI
+
+### Security AI Group
+- `SEC_ENGINEER` - Activate Security Engineer AI
+- `SEC_COMPLIANCE` - Activate Compliance Officer AI
+- `SEC_RISK` - Activate Risk Assessor AI
+- `SEC_PENTEST` - Activate Penetration Tester AI
+
+### Automation AI Group
+- `AUTO_WORKFLOW` - Activate Workflow Designer AI
+- `AUTO_SCRIPT` - Activate Script Generator AI
+- `AUTO_OPTIMIZE` - Activate Process Optimizer AI
+- `AUTO_INTEGRATE` - Activate Integration Specialist AI
+
+### Learning AI Group
+- `LEARN_PATTERN` - Activate Pattern Recognition AI
+- `LEARN_RULE` - Activate Rule Generator AI
+- `LEARN_ADAPT` - Activate Adaptive AI
+- `LEARN_KNOWLEDGE` - Activate Knowledge Manager AI
+
+### Coordination AI Group
+- `COORD_PROJECT` - Activate Project Manager AI
+- `COORD_TEAM` - Activate Team Coordinator AI
+- `COORD_WORKFLOW` - Activate Workflow Orchestrator AI
+- `COORD_RESOURCE` - Activate Resource Manager AI
+
+## [STRICT] Master Coordination Workflows
+
+### Project Initiation Workflow
+1. **Project Analysis** - `ANALYZE_BUSINESS` + `ANALYZE_DATA`
+2. **Security Assessment** - `SEC_RISK` + `SEC_COMPLIANCE`
+3. **Project Planning** - `COORD_PROJECT` + `COORD_RESOURCE`
+4. **Team Assembly** - `COORD_TEAM` + `COORD_WORKFLOW`
+5. **Workflow Design** - `AUTO_WORKFLOW` + `AUTO_OPTIMIZE`
+
+### Development Workflow
+1. **Requirements Analysis** - `ANALYZE_BUSINESS` + `ANALYZE_QUALITY`
+2. **Architecture Design** - `DEV_FULLSTACK` + `SEC_ENGINEER`
+3. **Development** - `DEV_FRONTEND` + `DEV_BACKEND`
+4. **Testing** - `DEV_TEST` + `ANALYZE_QUALITY`
+5. **Code Review** - `DEV_REVIEW` + `SEC_PENTEST`
+6. **Deployment** - `DEV_OPS` + `AUTO_INTEGRATE`
+
+### Learning and Adaptation Workflow
+1. **Pattern Recognition** - `LEARN_PATTERN` + `ANALYZE_DATA`
+2. **Rule Generation** - `LEARN_RULE` + `AUTO_OPTIMIZE`
+3. **Knowledge Management** - `LEARN_KNOWLEDGE` + `ANALYZE_RESEARCH`
+4. **Adaptation** - `LEARN_ADAPT` + `COORD_WORKFLOW`
+
+### Continuous Improvement Workflow
+1. **Performance Analysis** - `ANALYZE_PERFORMANCE` + `ANALYZE_QUALITY`
+2. **Process Optimization** - `AUTO_OPTIMIZE` + `COORD_WORKFLOW`
+3. **Learning Integration** - `LEARN_PATTERN` + `LEARN_ADAPT`
+4. **Implementation** - `AUTO_WORKFLOW` + `COORD_PROJECT`
+
+## [STRICT] Integration Patterns
+
+### Sequential Integration
+- **Waterfall Pattern** - Linear progression through role groups
+- **Stage-Gate Pattern** - Gated progression with checkpoints
+- **Pipeline Pattern** - Continuous flow through role groups
+- **Assembly Line Pattern** - Specialized roles in sequence
+
+### Parallel Integration
+- **Parallel Processing** - Multiple role groups working simultaneously
+- **Competitive Analysis** - Multiple approaches compared
+- **Redundancy** - Backup role groups for critical tasks
+- **Load Balancing** - Distribute work across role groups
+
+### Hierarchical Integration
+- **Master-Slave Pattern** - Master coordinator with specialized roles
+- **Manager-Worker Pattern** - Manager coordinates worker roles
+- **Command Pattern** - Centralized command with role execution
+- **Observer Pattern** - Role groups observe and react to changes
+
+### Network Integration
+- **Peer-to-Peer** - Direct communication between role groups
+- **Hub-Spoke** - Central hub with spoke role groups
+- **Mesh Network** - All role groups connected to all others
+- **Hybrid Network** - Combination of integration patterns
+
+## [STRICT] Decision Making Framework
+
+### Role Selection Criteria
+- **Project Requirements** - Match roles to project needs
+- **Available Resources** - Consider resource availability
+- **Timeline Constraints** - Consider time requirements
+- **Quality Requirements** - Consider quality standards
+- **Risk Factors** - Consider project risks
+
+### Workflow Selection Criteria
+- **Project Complexity** - Match workflow to complexity
+- **Team Size** - Consider team size and structure
+- **Technology Stack** - Consider technology requirements
+- **Compliance Requirements** - Consider regulatory requirements
+- **Budget Constraints** - Consider budget limitations
+
+### Integration Strategy Selection
+- **Project Type** - Match integration to project type
+- **Timeline** - Consider project timeline
+- **Risk Tolerance** - Consider risk tolerance
+- **Resource Availability** - Consider available resources
+- **Quality Requirements** - Consider quality standards
+
+## [STRICT] Quality Assurance
+
+### Cross-Role Validation
+- **Peer Review** - Role groups review each other's work
+- **Quality Gates** - Quality checkpoints between roles
+- **Integration Testing** - Test integration between role groups
+- **Performance Validation** - Validate performance across roles
+- **Compliance Checking** - Check compliance across all roles
+
+### Continuous Monitoring
+- **Performance Metrics** - Monitor performance of all role groups
+- **Quality Metrics** - Monitor quality across all roles
+- **Efficiency Metrics** - Monitor efficiency of workflows
+- **Satisfaction Metrics** - Monitor user satisfaction
+- **Learning Metrics** - Monitor learning and adaptation
+
+### Feedback Loops
+- **User Feedback** - Collect feedback from users
+- **Role Feedback** - Collect feedback from role groups
+- **Process Feedback** - Collect feedback on processes
+- **Performance Feedback** - Collect feedback on performance
+- **Learning Feedback** - Collect feedback on learning
+
+## [STRICT] Error Handling and Recovery
+
+### Error Detection
+- **Role-Level Errors** - Detect errors within role groups
+- **Integration Errors** - Detect errors between role groups
+- **Workflow Errors** - Detect errors in workflows
+- **System Errors** - Detect system-level errors
+- **Performance Errors** - Detect performance issues
+
+### Error Recovery
+- **Automatic Recovery** - Automatically recover from errors
+- **Role Switching** - Switch to alternative roles
+- **Workflow Adjustment** - Adjust workflows to handle errors
+- **Resource Reallocation** - Reallocate resources to handle errors
+- **Escalation** - Escalate errors to appropriate levels
+
+### Learning from Errors
+- **Error Analysis** - Analyze errors to understand causes
+- **Process Improvement** - Improve processes based on errors
+- **Role Enhancement** - Enhance roles based on errors
+- **Workflow Optimization** - Optimize workflows based on errors
+- **Prevention Strategies** - Develop strategies to prevent errors
+
+## [STRICT] Performance Optimization
+
+### Resource Optimization
+- **Resource Allocation** - Optimize resource allocation across roles
+- **Load Balancing** - Balance load across role groups
+- **Capacity Planning** - Plan capacity for role groups
+- **Resource Pooling** - Pool resources across role groups
+- **Dynamic Scaling** - Scale resources based on demand
+
+### Workflow Optimization
+- **Process Optimization** - Optimize processes within workflows
+- **Task Sequencing** - Optimize task sequencing
+- **Dependency Management** - Optimize dependency management
+- **Handoff Optimization** - Optimize handoffs between roles
+- **Parallel Processing** - Optimize parallel processing
+
+### Learning Optimization
+- **Pattern Recognition** - Optimize pattern recognition
+- **Rule Generation** - Optimize rule generation
+- **Adaptation Speed** - Optimize adaptation speed
+- **Knowledge Management** - Optimize knowledge management
+- **Continuous Learning** - Optimize continuous learning
+
+## [STRICT] Success Metrics
+
+### Overall System Metrics
+- **Project Success Rate** - Percentage of successful projects
+- **Quality Achievement** - Achievement of quality standards
+- **Timeline Adherence** - Adherence to project timelines
+- **Budget Adherence** - Adherence to project budgets
+- **User Satisfaction** - User satisfaction with outcomes
+
+### Role Group Metrics
+- **Role Utilization** - Utilization of role groups
+- **Role Performance** - Performance of individual role groups
+- **Role Integration** - Integration effectiveness between roles
+- **Role Learning** - Learning and adaptation of role groups
+- **Role Satisfaction** - Satisfaction with role group performance
+
+### Workflow Metrics
+- **Workflow Efficiency** - Efficiency of workflows
+- **Workflow Quality** - Quality of workflow outputs
+- **Workflow Adaptability** - Adaptability of workflows
+- **Workflow Scalability** - Scalability of workflows
+- **Workflow Satisfaction** - Satisfaction with workflows
+
+This Master Role-Based AI Coordinator provides comprehensive coordination and management of all specialized AI role groups for optimal project execution!

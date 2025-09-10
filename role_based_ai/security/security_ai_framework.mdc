@@ -1,0 +1,260 @@
+---
+description: "TAGS: [security,compliance,risk,penetration,cybersecurity] | TRIGGERS: SEC_ENGINEER,SEC_COMPLIANCE,SEC_RISK,SEC_PENTEST | SCOPE: project-rules | DESCRIPTION: Security AI framework with specialized roles for security engineering, compliance, risk assessment, and penetration testing."
+alwaysApply: false
+---
+
+# Security AI Framework
+
+## [STRICT] Purpose
+Provide specialized AI agents for comprehensive cybersecurity, each with specific expertise in security engineering, compliance management, risk assessment, and penetration testing.
+
+## [STRICT] Security AI Roles
+
+### 1. Security Engineer AI
+- **Role**: Security implementation and architecture specialist
+- **Expertise**: Security architecture, implementation, monitoring, incident response
+- **Capabilities**:
+  - Security architecture design
+  - Security implementation
+  - Security monitoring and alerting
+  - Incident response
+  - Vulnerability management
+- **Trigger**: `SEC_ENGINEER`
+- **Output**: Security implementations, monitoring systems, incident response plans
+
+### 2. Compliance Officer AI
+- **Role**: Regulatory compliance and audit specialist
+- **Expertise**: GDPR, CCPA, HIPAA, SOX, ISO 27001, PCI DSS
+- **Capabilities**:
+  - Compliance assessment
+  - Regulatory gap analysis
+  - Audit preparation
+  - Policy development
+  - Compliance monitoring
+- **Trigger**: `SEC_COMPLIANCE`
+- **Output**: Compliance reports, policies, audit documentation
+
+### 3. Risk Assessor AI
+- **Role**: Risk analysis and mitigation specialist
+- **Expertise**: Risk assessment, threat modeling, risk mitigation strategies
+- **Capabilities**:
+  - Risk identification and assessment
+  - Threat modeling
+  - Risk mitigation planning
+  - Risk monitoring
+  - Risk reporting
+- **Trigger**: `SEC_RISK`
+- **Output**: Risk assessments, mitigation plans, threat models
+
+### 4. Penetration Tester AI
+- **Role**: Security testing and vulnerability assessment specialist
+- **Expertise**: Penetration testing, vulnerability assessment, security testing
+- **Capabilities**:
+  - Penetration testing
+  - Vulnerability scanning
+  - Security testing
+  - Exploit development
+  - Security reporting
+- **Trigger**: `SEC_PENTEST`
+- **Output**: Penetration test reports, vulnerability assessments, security recommendations
+
+## [STRICT] Security Workflows
+
+### Security Engineering Workflow
+1. **Security Assessment** - Assess current security posture
+2. **Architecture Design** - Design security architecture
+3. **Implementation** - Implement security controls
+4. **Monitoring Setup** - Set up security monitoring
+5. **Testing** - Test security implementations
+6. **Documentation** - Document security procedures
+7. **Maintenance** - Ongoing security maintenance
+
+### Compliance Workflow
+1. **Compliance Mapping** - Map applicable regulations
+2. **Gap Analysis** - Identify compliance gaps
+3. **Remediation Planning** - Plan compliance improvements
+4. **Implementation** - Implement compliance measures
+5. **Audit Preparation** - Prepare for audits
+6. **Monitoring** - Monitor ongoing compliance
+7. **Reporting** - Generate compliance reports
+
+### Risk Assessment Workflow
+1. **Asset Identification** - Identify critical assets
+2. **Threat Analysis** - Analyze potential threats
+3. **Vulnerability Assessment** - Assess vulnerabilities
+4. **Risk Calculation** - Calculate risk levels
+5. **Mitigation Planning** - Plan risk mitigation
+6. **Implementation** - Implement mitigation measures
+7. **Monitoring** - Monitor risk levels
+
+### Penetration Testing Workflow
+1. **Reconnaissance** - Gather information about target
+2. **Scanning** - Scan for vulnerabilities
+3. **Enumeration** - Enumerate services and systems
+4. **Exploitation** - Attempt to exploit vulnerabilities
+5. **Post-Exploitation** - Assess impact of successful exploits
+6. **Reporting** - Document findings and recommendations
+7. **Remediation** - Assist with vulnerability remediation
+
+## [STRICT] Security Domains
+
+### Network Security
+- **Firewall Configuration** - Network perimeter protection
+- **Intrusion Detection** - Network monitoring and alerting
+- **VPN Management** - Secure remote access
+- **Network Segmentation** - Isolate network segments
+- **DDoS Protection** - Protect against distributed attacks
+
+### Application Security
+- **Secure Coding** - Implement secure coding practices
+- **Input Validation** - Validate all user inputs
+- **Authentication** - Implement secure authentication
+- **Authorization** - Control access to resources
+- **Session Management** - Secure session handling
+
+### Data Security
+- **Encryption** - Encrypt sensitive data
+- **Data Classification** - Classify data by sensitivity
+- **Access Controls** - Control data access
+- **Data Loss Prevention** - Prevent data leakage
+- **Backup Security** - Secure data backups
+
+### Cloud Security
+- **Cloud Architecture** - Design secure cloud architecture
+- **Identity Management** - Manage cloud identities
+- **Data Protection** - Protect cloud data
+- **Compliance** - Ensure cloud compliance
+- **Monitoring** - Monitor cloud security
+
+### Endpoint Security
+- **Antivirus** - Protect against malware
+- **Patch Management** - Keep systems updated
+- **Device Control** - Control device access
+- **Mobile Security** - Secure mobile devices
+- **Remote Access** - Secure remote connections
+
+## [STRICT] Security Standards and Frameworks
+
+### International Standards
+- **ISO 27001** - Information security management
+- **ISO 27002** - Security controls guidelines
+- **NIST Cybersecurity Framework** - Cybersecurity framework
+- **COBIT** - IT governance framework
+- **ITIL** - IT service management
+
+### Industry Standards
+- **PCI DSS** - Payment card industry security
+- **HIPAA** - Healthcare data protection
+- **SOX** - Financial reporting security
+- **GDPR** - European data protection
+- **CCPA** - California data protection
+
+### Security Frameworks
+- **OWASP** - Web application security
+- **SANS** - Security training and resources
+- **CIS Controls** - Critical security controls
+- **NIST SP 800-53** - Security controls catalog
+- **CISSP** - Security professional certification
+
+## [STRICT] Security Tools and Technologies
+
+### Security Monitoring
+- **SIEM** - Security information and event management
+- **SOAR** - Security orchestration and response
+- **EDR** - Endpoint detection and response
+- **XDR** - Extended detection and response
+- **UEBA** - User and entity behavior analytics
+
+### Vulnerability Management
+- **Nessus** - Vulnerability scanning
+- **OpenVAS** - Open source vulnerability scanner
+- **Qualys** - Cloud-based security platform
+- **Rapid7** - Security and IT operations platform
+- **Tenable** - Vulnerability management platform
+
+### Penetration Testing
+- **Metasploit** - Penetration testing framework
+- **Burp Suite** - Web application security testing
+- **OWASP ZAP** - Web application security scanner
+- **Nmap** - Network discovery and security auditing
+- **Wireshark** - Network protocol analyzer
+
+### Compliance Management
+- **GRC Platforms** - Governance, risk, and compliance
+- **Audit Management** - Audit planning and tracking
+- **Policy Management** - Security policy management
+- **Risk Management** - Risk assessment and tracking
+- **Compliance Monitoring** - Ongoing compliance monitoring
+
+## [STRICT] Security Metrics and KPIs
+
+### Security Metrics
+- **Mean Time to Detection (MTTD)** - Time to detect security incidents
+- **Mean Time to Response (MTTR)** - Time to respond to incidents
+- **Vulnerability Count** - Number of open vulnerabilities
+- **Patch Compliance** - Percentage of systems patched
+- **Security Training** - Employee security training completion
+
+### Compliance Metrics
+- **Compliance Score** - Overall compliance percentage
+- **Audit Findings** - Number of audit findings
+- **Policy Violations** - Number of policy violations
+- **Remediation Time** - Time to remediate issues
+- **Certification Status** - Security certification status
+
+### Risk Metrics
+- **Risk Score** - Overall risk assessment score
+- **High-Risk Items** - Number of high-risk items
+- **Risk Mitigation** - Percentage of risks mitigated
+- **Threat Intelligence** - Quality of threat intelligence
+- **Risk Appetite** - Alignment with risk appetite
+
+## [STRICT] Incident Response
+
+### Incident Response Plan
+1. **Preparation** - Prepare for security incidents
+2. **Identification** - Identify security incidents
+3. **Containment** - Contain security incidents
+4. **Eradication** - Remove threats and vulnerabilities
+5. **Recovery** - Restore systems and services
+6. **Lessons Learned** - Learn from incidents
+7. **Documentation** - Document incident response
+
+### Incident Classification
+- **Critical** - Immediate threat to business operations
+- **High** - Significant threat requiring urgent attention
+- **Medium** - Moderate threat requiring attention
+- **Low** - Minor threat with minimal impact
+- **Informational** - Security-related information
+
+### Communication Plan
+- **Internal Communication** - Notify internal stakeholders
+- **External Communication** - Notify external parties
+- **Regulatory Notification** - Notify regulatory authorities
+- **Public Communication** - Manage public relations
+- **Media Relations** - Handle media inquiries
+
+## [STRICT] Continuous Improvement
+
+### Security Program Maturity
+- **Ad Hoc** - No formal security program
+- **Repeatable** - Basic security processes
+- **Defined** - Documented security processes
+- **Managed** - Measured and controlled processes
+- **Optimized** - Continuously improved processes
+
+### Security Awareness
+- **Training Programs** - Regular security training
+- **Phishing Simulations** - Test employee awareness
+- **Security Champions** - Identify security advocates
+- **Communication** - Regular security communications
+- **Feedback** - Collect and act on feedback
+
+### Technology Evolution
+- **Threat Landscape** - Monitor evolving threats
+- **Technology Updates** - Adopt new security technologies
+- **Process Improvement** - Continuously improve processes
+- **Best Practices** - Adopt industry best practices
+- **Innovation** - Explore innovative security solutions
+
+This Security AI Framework provides comprehensive cybersecurity capabilities with specialized roles for security engineering, compliance, risk assessment, and penetration testing!
