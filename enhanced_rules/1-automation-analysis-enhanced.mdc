@@ -1,0 +1,476 @@
+---
+description: "TAGS: [automation,analysis,workflow,orchestration,ai-rule-generation,multi-agent,coordination,safety] | TRIGGERS: MAKE_AUTO_BRIEF,GENERATE_AUTOMATION,CREATE_FLOW,ANALYZE_PROJECT,GENERATE_RULES,ADVANCE_RULES,LEARN_FROM_PROMPT,COORDINATE_AGENTS,ENFORCE_SAFETY,MANAGE_MDC | SCOPE: project-rules | DESCRIPTION: Advanced automation workflow analyzer with multi-agent coordination, dynamic rule generation, and comprehensive safety protocols based on learned patterns from complex AI systems."
+alwaysApply: false
+---
+
+# Advanced Multi-Agent Automation Workflow Analyzer with Enhanced Safety and Coordination
+
+## [STRICT] Purpose and Scope
+- Analyze project briefs or end-to-end tasks to identify automation opportunities in multi-agent systems
+- Generate connected automation workflows with intelligent agent coordination
+- **MULTI-AGENT COORDINATION**: Orchestrate complex AI agent interactions and workflows
+- **DYNAMIC RULE GENERATION**: Create new, advanced AI rules based on learned patterns from prompts
+- **SAFETY-FIRST DESIGN**: Implement comprehensive safety protocols and risk assessment
+- **CURSOR INTEGRATION**: Seamless integration with cursor rule protocols and MDC file management
+- **SELF-IMPROVEMENT**: Continuously evolve and enhance automation capabilities through learning
+
+## [STRICT] Enhanced Core Capabilities
+
+### 1. Multi-Agent Project Analysis Engine
+- **Input Processing**: Parse complex project briefs, requirements, and multi-agent task descriptions
+- **Agent Role Identification**: Identify required AI roles and capabilities for project execution
+- **Coordination Analysis**: Analyze inter-agent dependencies and communication requirements
+- **Safety Assessment**: Evaluate safety risks and compliance requirements across all agents
+- **Pattern Recognition**: Identify repetitive tasks, dependencies, and automation candidates
+- **Complexity Assessment**: Evaluate task complexity and multi-agent automation feasibility
+- **Technology Stack Analysis**: Determine appropriate tools and frameworks for multi-agent automation
+- **Learning Integration**: Extract patterns for rule generation and system improvement
+
+### 2. Multi-Agent Automation Generation
+- **Workflow Design**: Create connected automation sequences with intelligent agent coordination
+- **Agent Assignment**: Generate optimal agent assignments based on capabilities and workload
+- **Trigger Definition**: Generate specific command triggers for each automation step and agent
+- **Dependency Mapping**: Establish proper sequencing, prerequisites, and inter-agent dependencies
+- **Integration Points**: Identify where automations connect and hand off between agents
+- **Safety Integration**: Embed safety protocols and risk mitigation into all workflows
+- **Rule Integration**: Embed learned patterns into automation workflows and agent behaviors
+
+### 3. Advanced Dynamic Rule Generation Engine
+- **Pattern Learning**: Analyze prompts and multi-agent interactions to identify reusable patterns
+- **Rule Synthesis**: Generate new AI rules based on learned patterns and agent behaviors
+- **Multi-Agent Rules**: Create rules specifically for agent coordination and communication
+- **Safety Rules**: Generate safety and compliance rules based on risk patterns
+- **Advanced Capabilities**: Create more sophisticated automation rules with context awareness
+- **Context Awareness**: Adapt rules based on project context, agent capabilities, and requirements
+- **Continuous Evolution**: Improve rules based on usage patterns, feedback, and performance data
+
+### 4. Multi-Agent System Instruction Creation
+- **Modular Instructions**: Generate focused, single-purpose system instructions for each agent
+- **Coordination Instructions**: Create instructions for inter-agent communication and coordination
+- **Safety Instructions**: Generate safety protocols and compliance instructions
+- **Triggerable Commands**: Create specific user commands for each automation and agent
+- **Context Preservation**: Maintain project context across automation chains and agent handoffs
+- **Error Handling**: Include comprehensive fallback and recovery mechanisms
+- **Learning Integration**: Incorporate learned patterns into instructions and agent behaviors
+
+## [STRICT] Enhanced Command Triggers
+
+### MAKE_AUTO_BRIEF
+- **Purpose**: Convert project brief into multi-agent automation-ready format with learning
+- **Input**: Raw project brief, requirements document, or multi-agent task description
+- **Output**: Structured brief with automation opportunities, agent requirements, and learning insights
+- **Process**:
+  1. Parse and structure the input brief
+  2. Identify required AI agents and their roles
+  3. Analyze inter-agent dependencies and coordination requirements
+  4. Assess safety risks and compliance requirements
+  5. Identify automation candidates (repetitive tasks, dependencies)
+  6. Extract key entities, workflows, and integration points
+  7. **LEARN**: Identify patterns that could become reusable rules
+  8. Generate multi-agent automation-ready brief with metadata and learning insights
+
+### GENERATE_AUTOMATION
+- **Purpose**: Create specific multi-agent automation workflows from analyzed brief
+- **Input**: Multi-agent automation-ready brief from MAKE_AUTO_BRIEF
+- **Output**: Detailed automation specifications with agent coordination and learned patterns
+- **Process**:
+  1. Analyze automation opportunities across multiple agents
+  2. Design workflow sequences with agent coordination
+  3. Define trigger commands for each agent and workflow step
+  4. Specify integration points and inter-agent handoffs
+  5. Embed safety protocols and risk mitigation
+  6. **LEARN**: Extract patterns for rule generation
+  7. Generate implementation specifications with learning metadata
+
+### CREATE_FLOW
+- **Purpose**: Generate complete multi-agent automation flow with system instructions
+- **Input**: Multi-agent automation specifications from GENERATE_AUTOMATION
+- **Output**: Executable automation flow with all system instructions and agent coordination
+- **Process**:
+  1. Create system instruction templates for each agent
+  2. Define trigger command mappings and agent coordination
+  3. Establish flow control, error handling, and safety protocols
+  4. **LEARN**: Incorporate learned patterns into instructions
+  5. Generate complete multi-agent automation package
+  6. Provide execution guidance with learning insights
+
+### ANALYZE_PROJECT
+- **Purpose**: Deep analysis of existing project for multi-agent automation opportunities
+- **Input**: Project codebase, documentation, configuration, or multi-agent system
+- **Output**: Comprehensive automation analysis report with learning insights
+- **Process**:
+  1. Scan project structure and dependencies
+  2. Identify existing agents and their capabilities
+  3. Analyze automation patterns and opportunities
+  4. Assess inter-agent communication and coordination
+  5. Evaluate safety and compliance requirements
+  6. **LEARN**: Extract patterns for rule generation
+  7. Generate optimization recommendations
+  8. Create multi-agent automation roadmap with learning insights
+
+### **ENHANCED: GENERATE_RULES**
+- **Purpose**: Generate new AI rules based on learned patterns from multi-agent systems
+- **Input**: Learned patterns from previous analyses, multi-agent interactions, or specific prompt
+- **Output**: New, advanced AI rules for multi-agent coordination and automation
+- **Process**:
+  1. Analyze learned patterns and multi-agent interaction structures
+  2. Identify reusable rule templates for agent coordination
+  3. Generate rule metadata (TAGS, TRIGGERS, SCOPE) with multi-agent focus
+  4. Create rule content with proper formatting and safety protocols
+  5. Validate rule compatibility with existing multi-agent system
+  6. Output ready-to-use rule files with agent coordination capabilities
+
+### **ENHANCED: ADVANCE_RULES**
+- **Purpose**: Enhance existing rules with multi-agent capabilities and new learning
+- **Input**: Existing rule + new patterns/insights from multi-agent analysis
+- **Output**: Enhanced version of the rule with multi-agent capabilities
+- **Process**:
+  1. Analyze existing rule structure and capabilities
+  2. Identify enhancement opportunities from multi-agent patterns
+  3. Add agent coordination and communication capabilities
+  4. Integrate safety protocols and risk assessment
+  5. Generate improved rule content with multi-agent focus
+  6. Maintain backward compatibility while adding new capabilities
+  7. Output enhanced rule file with multi-agent coordination
+
+### **ENHANCED: LEARN_FROM_PROMPT**
+- **Purpose**: Extract learning from prompts to generate multi-agent rules
+- **Input**: Any prompt, instruction, or multi-agent system description
+- **Output**: Generated rules based on prompt analysis with multi-agent focus
+- **Process**:
+  1. Parse the input prompt for patterns and multi-agent requirements
+  2. Identify automation opportunities across multiple agents
+  3. Extract reusable rule templates for agent coordination
+  4. Generate appropriate rule metadata with multi-agent focus
+  5. Create rule content based on prompt analysis and agent coordination
+  6. Output multiple rule variations with different agent coordination patterns
+
+### **NEW: COORDINATE_AGENTS**
+- **Purpose**: Coordinate multiple AI agents for complex project execution
+- **Input**: Project requirements and available agent capabilities
+- **Output**: Coordinated agent execution plan with communication protocols
+- **Process**:
+  1. Analyze project requirements for agent needs
+  2. Map requirements to available agent capabilities
+  3. Create agent assignment and coordination plan
+  4. Establish communication protocols and handoff procedures
+  5. Define safety protocols and risk mitigation
+  6. Generate execution plan with agent coordination
+
+### **NEW: ENFORCE_SAFETY**
+- **Purpose**: Enforce comprehensive safety protocols across multi-agent systems
+- **Input**: Multi-agent system state and safety requirements
+- **Output**: Safety enforcement actions and compliance status
+- **Process**:
+  1. Monitor all agents for safety compliance
+  2. Assess risks across agent interactions
+  3. Enforce safety protocols and standards
+  4. Detect and respond to safety violations
+  5. Coordinate safety responses across agents
+  6. Generate safety reports and recommendations
+
+### **NEW: MANAGE_MDC**
+- **Purpose**: Manage MDC files and rule definitions for multi-agent systems
+- **Input**: MDC file operations and multi-agent rule updates
+- **Output**: MDC management status and multi-agent rule updates
+- **Process**:
+  1. Parse MDC file structure for multi-agent rules
+  2. Validate rule definitions and agent coordination
+  3. Load rules into multi-agent system
+  4. Update rule registry with agent coordination
+  5. Notify affected agents of rule changes
+  6. Coordinate rule deployment across agents
+
+## [STRICT] Multi-Agent Learning and Pattern Recognition
+
+### Enhanced Pattern Extraction
+- **Multi-Agent Patterns**: Identify patterns in agent interactions and coordination
+- **Prompt Analysis**: Identify common patterns in user prompts for multi-agent systems
+- **Workflow Patterns**: Recognize recurring automation sequences across agents
+- **Integration Patterns**: Learn how different agents and systems connect
+- **Safety Patterns**: Identify safety patterns and risk mitigation strategies
+- **Error Patterns**: Identify common failure points and solutions in multi-agent systems
+- **Optimization Patterns**: Learn efficiency improvements for agent coordination
+
+### Multi-Agent Rule Generation Templates
+```yaml
+multi_agent_rule_template:
+  metadata:
+    description: "TAGS: [learned_tags,multi-agent,coordination] | TRIGGERS: [learned_triggers] | SCOPE: [appropriate_scope] | DESCRIPTION: [learned_description]"
+    alwaysApply: false
+  
+  content:
+    purpose: "[extracted_purpose_with_agent_coordination]"
+    capabilities: "[learned_capabilities_with_agent_focus]"
+    triggers: "[learned_triggers]"
+    process: "[learned_process_with_agent_coordination]"
+    integration: "[learned_integration_with_agent_communication]"
+    safety: "[learned_safety_with_agent_protocols]"
+    agent_coordination: "[agent_coordination_patterns]"
+    communication: "[inter_agent_communication_patterns]"
+```
+
+### Enhanced Learning Integration
+- **Multi-Agent Context Awareness**: Adapt rules based on agent capabilities and project context
+- **Technology Stack**: Generate rules specific to detected tech stacks and agent types
+- **Industry Patterns**: Learn industry-specific automation patterns for multi-agent systems
+- **User Preferences**: Adapt to user's working style and multi-agent preferences
+- **Feedback Loop**: Improve rules based on usage feedback and agent performance
+- **Safety Learning**: Learn from safety incidents and improve protocols
+
+## [STRICT] Enhanced Output Specifications
+
+### Multi-Agent Automation Brief Format
+```yaml
+project_metadata:
+  name: string
+  type: string
+  complexity: low|medium|high
+  automation_score: 0-100
+  learning_insights: string[]
+  agent_requirements: string[]
+  safety_level: low|medium|high|critical
+
+automation_opportunities:
+  - id: string
+    type: workflow|integration|optimization|coordination
+    description: string
+    complexity: low|medium|high
+    estimated_effort: hours
+    dependencies: string[]
+    triggers: string[]
+    learned_patterns: string[]
+    potential_rules: string[]
+    required_agents: string[]
+    safety_requirements: string[]
+
+workflow_sequences:
+  - name: string
+    steps: automation_step[]
+    triggers: string[]
+    integration_points: string[]
+    error_handling: string[]
+    learned_optimizations: string[]
+    agent_coordination: string[]
+    safety_protocols: string[]
+
+generated_rules:
+  - rule_name: string
+    rule_type: automation|workflow|integration|optimization|coordination|safety
+    triggers: string[]
+    capabilities: string[]
+    generated_from: string
+    confidence_score: 0-100
+    agent_coordination: string[]
+    safety_level: string
+```
+
+### Multi-Agent Dynamic Rule Generation Format
+```markdown
+---
+description: "TAGS: [learned_tags,multi-agent,coordination] | TRIGGERS: [learned_triggers] | SCOPE: [appropriate_scope] | DESCRIPTION: [learned_description]"
+alwaysApply: false
+---
+
+# [Generated Multi-Agent Rule Name]
+
+## [STRICT] Purpose
+[Generated purpose based on learned patterns with multi-agent focus]
+
+## [STRICT] Learned Capabilities
+[Capabilities extracted from prompt analysis with agent coordination]
+
+## [STRICT] Triggers
+- [LEARNED_TRIGGER1]: [Description based on pattern analysis]
+- [LEARNED_TRIGGER2]: [Description based on pattern analysis]
+
+## [STRICT] Process
+[Process generated from learned patterns with agent coordination]
+
+## [STRICT] Agent Coordination
+[Agent coordination patterns learned from analysis]
+
+## [STRICT] Integration Points
+[Integration points learned from analysis with agent communication]
+
+## [STRICT] Safety Protocols
+[Safety protocols learned from analysis]
+
+## [STRICT] Error Handling
+[Error handling patterns learned from analysis with agent coordination]
+
+## [STRICT] Learning Metadata
+- Generated from: [source_prompt_or_pattern]
+- Confidence score: [0-100]
+- Last updated: [timestamp]
+- Usage count: [number]
+- Agent coordination: [coordination_patterns]
+- Safety level: [safety_requirements]
+```
+
+## [STRICT] Enhanced Self-Improvement Mechanisms
+
+### Multi-Agent Continuous Learning
+- **Pattern Accumulation**: Build database of learned patterns from multi-agent interactions
+- **Rule Evolution**: Continuously improve existing rules with multi-agent capabilities
+- **Capability Expansion**: Add new capabilities based on learning and agent coordination
+- **Optimization**: Improve efficiency based on usage patterns and agent performance
+- **Adaptation**: Adapt to new technologies, methodologies, and agent types
+- **Safety Learning**: Learn from safety incidents and improve protocols
+
+### Enhanced Feedback Integration
+- **Success Metrics**: Track successful automation outcomes across agents
+- **Failure Analysis**: Learn from failed automations and agent coordination issues
+- **User Feedback**: Incorporate user suggestions and improvements for multi-agent systems
+- **Performance Metrics**: Optimize based on performance data and agent efficiency
+- **Usage Patterns**: Adapt to how users actually use the multi-agent system
+- **Safety Feedback**: Learn from safety incidents and improve protocols
+
+### Multi-Agent Rule Validation
+- **Compatibility Check**: Ensure new rules work with existing multi-agent system
+- **Conflict Detection**: Identify and resolve rule conflicts across agents
+- **Quality Assurance**: Validate rule quality and completeness for multi-agent coordination
+- **Testing**: Test generated rules before deployment in multi-agent environment
+- **Rollback Capability**: Ability to revert problematic rules across all agents
+- **Safety Validation**: Validate safety protocols and compliance across agents
+
+## [STRICT] Enhanced Safety and Bounds
+
+### Multi-Agent Learning Safety
+- **Pattern Validation**: Validate learned patterns before rule generation
+- **Security Review**: Ensure learned patterns don't introduce security risks
+- **Quality Gates**: Implement quality checks for generated rules
+- **Human Oversight**: Require human approval for critical rule changes
+- **Audit Trail**: Track all rule generation and modifications
+- **Agent Safety**: Ensure agent coordination doesn't compromise safety
+
+### Enhanced Operational Bounds
+- **Resource Limits**: Respect system resource constraints for learning and agent coordination
+- **Rate Limiting**: Limit rule generation frequency and agent coordination overhead
+- **Storage Management**: Manage rule storage and cleanup across agents
+- **Version Control**: Track rule versions and changes across agents
+- **Backup and Recovery**: Maintain rule backups and recovery procedures
+- **Agent Limits**: Respect agent capacity and coordination limits
+
+## [STRICT] Enhanced Success Metrics
+
+### Multi-Agent Learning Effectiveness
+- **Pattern Recognition Accuracy**: How well patterns are identified in multi-agent systems
+- **Rule Generation Quality**: Quality of generated rules for agent coordination
+- **Automation Improvement**: Improvement in automation effectiveness across agents
+- **User Satisfaction**: User satisfaction with generated rules and agent coordination
+- **System Performance**: Impact on overall system performance and agent efficiency
+- **Safety Compliance**: Compliance with safety standards across all agents
+
+### Enhanced Continuous Improvement
+- **Learning Rate**: How quickly the system learns new patterns from multi-agent interactions
+- **Rule Evolution**: How well rules evolve and improve for agent coordination
+- **Adaptation Speed**: How quickly the system adapts to new requirements and agent types
+- **Error Reduction**: Reduction in automation errors over time across agents
+- **Efficiency Gains**: Measurable efficiency improvements in agent coordination
+- **Safety Improvement**: Improvement in safety protocols and compliance
+
+## [STRICT] Enhanced Implementation Guidelines
+
+### Multi-Agent Rule Generation Process
+1. **Pattern Analysis**: Analyze input for reusable patterns in multi-agent systems
+2. **Template Selection**: Choose appropriate rule template for agent coordination
+3. **Content Generation**: Generate rule content based on patterns and agent coordination
+4. **Validation**: Validate generated rule for quality and compatibility across agents
+5. **Testing**: Test rule functionality before deployment in multi-agent environment
+6. **Deployment**: Deploy validated rule to multi-agent system
+
+### Enhanced Learning Integration
+1. **Pattern Extraction**: Extract patterns from all inputs and multi-agent interactions
+2. **Pattern Storage**: Store patterns in searchable database with agent coordination metadata
+3. **Pattern Analysis**: Analyze patterns for rule generation opportunities in multi-agent systems
+4. **Rule Synthesis**: Generate rules from analyzed patterns with agent coordination
+5. **Rule Integration**: Integrate new rules into existing multi-agent system
+6. **Feedback Loop**: Collect feedback and improve learning process for agent coordination
+
+## [STRICT] Enhanced Example Usage Scenarios
+
+### Scenario 1: Multi-Agent E-commerce Platform
+User: "Create a full-stack e-commerce platform with React, Node.js, PostgreSQL, Stripe integration, admin dashboard, real-time notifications, and automated testing using multiple AI agents"
+
+LEARN_FROM_PROMPT → Analyzes the prompt and generates:
+- E-commerce automation rules with agent coordination
+- Payment integration rules with safety protocols
+- Real-time notification rules with agent communication
+- Admin dashboard rules with multi-agent coordination
+- Testing automation rules with agent coordination
+- Safety protocols for financial transactions
+- Agent coordination patterns for complex workflows
+
+### Scenario 2: Multi-Agent Microservices Deployment
+User: "I need to automate the deployment process for my microservices using multiple AI agents"
+
+GENERATE_RULES → Analyzes deployment patterns and generates:
+- Microservices deployment rules with agent coordination
+- CI/CD pipeline rules with multi-agent orchestration
+- Container orchestration rules with agent communication
+- Monitoring and logging rules with agent coordination
+- Safety protocols for production deployments
+- Agent coordination patterns for deployment workflows
+
+### Scenario 3: Multi-Agent Safety and Compliance
+User: "The previous automation didn't handle safety and compliance requirements well across multiple agents"
+
+ADVANCE_RULES → Analyzes the feedback and enhances existing rules:
+- Adds comprehensive safety protocols for multi-agent systems
+- Improves compliance checking across all agents
+- Adds robust validation and error handling
+- Enhances logging and monitoring for agent coordination
+- Implements safety-first design principles
+- Adds agent coordination safety protocols
+
+This enhanced rule now includes **comprehensive multi-agent coordination** capabilities that allow the AI to orchestrate complex multi-agent systems with safety-first design and continuous learning! 🚀
+
+The enhanced rule now includes:
+🚀 NEW MULTI-AGENT CAPABILITIES
+1. COORDINATE_AGENTS - Multi-Agent Coordination
+   - Orchestrates complex AI agent interactions
+   - Manages agent assignments and communication
+   - Coordinates workflows across multiple agents
+   - Implements safety protocols for agent coordination
+
+2. ENFORCE_SAFETY - Comprehensive Safety Protocols
+   - Monitors safety compliance across all agents
+   - Implements risk assessment and mitigation
+   - Enforces safety standards and protocols
+   - Coordinates safety responses across agents
+
+3. MANAGE_MDC - Enhanced Rule Management
+   - Manages MDC files for multi-agent systems
+   - Coordinates rule updates across agents
+   - Validates rule compatibility and safety
+   - Implements agent coordination protocols
+
+🔧 Enhanced Self-Improvement Features
+- Multi-Agent Pattern Recognition: Learns from agent interactions
+- Agent Coordination Learning: Improves agent coordination over time
+- Safety-First Learning: Learns from safety incidents and improves protocols
+- Context-Aware Adaptation: Adapts to different agent types and capabilities
+- Feedback Integration: Learns from user feedback and agent performance
+- Continuous Learning: Builds knowledge base for multi-agent systems
+
+💡 Practical Multi-Agent Examples
+Example 1: Multi-Agent E-commerce Platform
+Input: "Create a full-stack e-commerce platform with multiple AI agents"
+
+Output: Generates comprehensive multi-agent system:
+- Agent coordination rules for complex workflows
+- Safety protocols for financial transactions
+- Communication patterns between agents
+- Quality assurance across all agents
+- Compliance checking and validation
+
+Example 2: Multi-Agent Safety and Compliance
+Input: "Implement safety and compliance across multiple AI agents"
+
+Output: Generates safety-focused multi-agent system:
+- Comprehensive safety protocols
+- Risk assessment across all agents
+- Compliance monitoring and enforcement
+- Safety incident response coordination
+- Continuous safety improvement
