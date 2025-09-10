@@ -1,0 +1,105 @@
+---
+description: "TAGS: [cursor,scaffold,rule-generation,orchestration] | TRIGGERS: MAKE_RULES_FROM_SCAFFOLD,SCAFFOLD_ANALYZE,SCAFFOLD_SUMMARIZE,GENERATE_ROLE_RULES,SYNC_RULES,VALIDATE_RULES | SCOPE: cursor-rules | DESCRIPTION: Orchestrates scaffold ingestion and emits role-based MDC rules and backend communication triggers."
+alwaysApply: false
+---
+
+# Master Scaffold Orchestrator
+
+## [STRICT] Purpose
+- Ingest a project scaffold (tree, manifest, or path) and generate role-based Cursor rules as `.mdc` files.
+- Emit backend communication triggers so component interactions can be controlled via commands.
+- Maintain consistency, avoid trigger collisions, and validate the generated rule set.
+
+## [STRICT] Inputs
+- Accepts one of:
+  - Plain-text tree (e.g., from `tree -I node_modules`)
+  - JSON manifest describing folders/files
+  - Repository path (absolute or workspace-relative)
+
+### Input Examples
+```text
+tree:
+app/
+  frontend/
+    src/components/
+  backend/
+    services/
+      users/
+      orders/
+    api/
+    events/
+  infra/
+    deploy/
+tests/
+```
+
+```json
+manifest: {
+  "root": "app",
+  "dirs": ["frontend/src/components", "backend/services/users", "backend/services/orders", "backend/api", "backend/events", "infra/deploy", "tests"]
+}
+```
+
+## [STRICT] Triggers
+
+### MAKE_RULES_FROM_SCAFFOLD
+- Role: One-shot orchestration to analyze scaffold and generate rules
+- Accepts: `path: <repo-path>` | `tree: <text>` | `manifest: <json>`
+- Actions:
+  1) Run `SCAFFOLD_ANALYZE`
+  2) Run `GENERATE_ROLE_RULES`
+  3) Generate backend communication rules
+  4) Run `SYNC_RULES` and `VALIDATE_RULES`
+- Output:
+  - Writes `.cursor/rules/generated/*.mdc` files
+  - Prints summary of created/updated files
+
+### SCAFFOLD_ANALYZE
+- Role: Parse scaffold, detect domains (frontend, backend, services, api, events, infra, tests, data)
+- Output: Structured summary with detected domains and candidate roles
+
+### GENERATE_ROLE_RULES
+- Role: Emit per-domain MDC files and group triggers, derived from analysis
+- Output files: `generated/development.mdc`, `generated/analysis.mdc`, `generated/security.mdc`, `generated/automation.mdc`, `generated/learning.mdc`, `generated/coordination.mdc`
+
+### SYNC_RULES
+- Role: Ensure unique trigger names, add cross-links, and register generated rules in an index (`generated/_index.mdc`)
+- Safeguards: Backup any overwritten files to `generated/.backup/<timestamp>/`
+
+### VALIDATE_RULES
+- Role: Validate trigger uniqueness, required sections, and example invocations
+- Output: Validation report with pass/fail and remediation hints
+
+### SCAFFOLD_SUMMARIZE
+- Role: Produce a concise system summary and the mapping rationale (scaffold → roles → triggers)
+- Output: `generated/SCHEMA_SUMMARY.md`
+
+## [STRICT] Orchestration Workflow
+1. Input normalization (path → tree; manifest → tree)
+2. Domain detection and service catalog extraction
+3. Role mapping per domain (development, security, ops, etc.)
+4. Emit role-group MDCs with project-specific triggers
+5. Emit `backend_communication.mdc` tailored to detected services and transport(s)
+6. Sync and validate rule set; back up prior versions
+7. Print next steps and sample trigger invocations
+
+## [STRICT] Outputs
+- `.cursor/rules/generated/`
+  - `development.mdc`, `analysis.mdc`, `security.mdc`, `automation.mdc`, `learning.mdc`, `coordination.mdc`
+  - `backend_communication.mdc`
+  - `_index.mdc` (registry of generated files)
+  - `.backup/<timestamp>/` (previous versions)
+
+## [STRICT] Safety & Idempotency
+- Never delete existing non-generated rules; only write within `generated/`
+- Back up before overwrite; include diff summary in the validation report
+- Use deterministic trigger names: `<DOMAIN>_<ROLE>__<PROJECT_OR_SERVICE>` when needed
+
+## [STRICT] Examples
+- Generate from path:
+  - MAKE_RULES_FROM_SCAFFOLD path: /workspace/app
+- Generate from pasted tree:
+  - MAKE_RULES_FROM_SCAFFOLD tree: <paste your tree block>
+- Summarize only:
+  - SCAFFOLD_SUMMARIZE path: /workspace/app
+
