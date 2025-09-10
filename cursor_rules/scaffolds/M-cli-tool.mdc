@@ -1,0 +1,24 @@
+---
+description: "TAGS: [scaffold,cli,tools,automation] | TRIGGERS: GEN_CLI_RULES,CLI_COMMANDS_RULES,CLI_COMPLETIONS_RULES,CLI_PACKAGING_RULES | SCOPE: cursor-rules | DESCRIPTION: CLI rules for commands hierarchy, shell completions, and cross-platform packaging."
+alwaysApply: false
+---
+
+# M. CLI Tool Rules
+
+## [STRICT] Purpose
+- Standardize commands structure, completions, and packaging.
+
+## [STRICT] Triggers
+
+### GEN_CLI_RULES
+- Role: Generate CLI rules and tasks
+
+### CLI_COMMANDS_RULES
+- Role: Organize commands/<topic>/options/handlers
+
+### CLI_COMPLETIONS_RULES
+- Role: Generate shell completions under config/completions/
+
+### CLI_PACKAGING_RULES
+- Role: Packaging rules for installers and standalone builds
+

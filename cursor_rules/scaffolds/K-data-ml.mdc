@@ -1,0 +1,30 @@
+---
+description: "TAGS: [scaffold,data,ml,etl,training,serving] | TRIGGERS: GEN_DATA_ML_RULES,DATA_PIPELINES_RULES,ML_TRAINING_RULES,ML_SERVING_RULES,ML_REGRESSION_RULES,ML_OBS_RULES | SCOPE: cursor-rules | DESCRIPTION: Data/ML rules for ETL pipelines, training/evaluation/serving, regression tests, and observability."
+alwaysApply: false
+---
+
+# K. Data/ML Rules
+
+## [STRICT] Purpose
+- Structure ETL and ML modules with reproducible pipelines and governance.
+
+## [STRICT] Triggers
+
+### GEN_DATA_ML_RULES
+- Role: Generate data/ML rules and tasks
+
+### DATA_PIPELINES_RULES
+- Role: Orchestrator DAGs (Airflow/Prefect) under config/pipelines/
+
+### ML_TRAINING_RULES
+- Role: Training/evaluation structure and dataset hygiene
+
+### ML_SERVING_RULES
+- Role: Batch/online serving strategies and contracts
+
+### ML_REGRESSION_RULES
+- Role: Model regression checks and alerts for drift
+
+### ML_OBS_RULES
+- Role: Drift and performance monitoring plan
+

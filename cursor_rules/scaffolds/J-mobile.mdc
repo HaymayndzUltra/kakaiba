@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,mobile,react-native,flutter,android,ios] | TRIGGERS: GEN_MOBILE_RULES,MOBILE_NAV_RULES,MOBILE_SECURE_STORAGE,MOBILE_E2E_RULES,MOBILE_OBS_RULES | SCOPE: cursor-rules | DESCRIPTION: Mobile rules for navigation/screens/components/services, secure storage, E2E, and observability."
+alwaysApply: false
+---
+
+# J. Mobile Rules
+
+## [STRICT] Purpose
+- Provide clear navigation, secure storage, and E2E testing scaffolding.
+
+## [STRICT] Triggers
+
+### GEN_MOBILE_RULES
+- Role: Generate mobile rules and tasks
+
+### MOBILE_NAV_RULES
+- Role: Navigation conventions and screen boundaries
+
+### MOBILE_SECURE_STORAGE
+- Role: Abstract secure storage; forbid hardcoded keys
+
+### MOBILE_E2E_RULES
+- Role: Detox/Appium structure and test strategy
+
+### MOBILE_OBS_RULES
+- Role: Crash/performance monitoring setup expectations
+

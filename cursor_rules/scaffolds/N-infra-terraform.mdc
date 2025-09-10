@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,iac,terraform,opa] | TRIGGERS: GEN_IAC_RULES,IAC_MODULES_RULES,IAC_ENVS_RULES,IAC_POLICIES_RULES,IAC_PIPELINES_RULES | SCOPE: cursor-rules | DESCRIPTION: IaC rules for modules/envs separation, policies-as-code, and plan/apply pipelines."
+alwaysApply: false
+---
+
+# N. IaC / Terraform Rules
+
+## [STRICT] Purpose
+- Organize environments, modules, and policy guardrails with CI pipelines.
+
+## [STRICT] Triggers
+
+### GEN_IAC_RULES
+- Role: Generate IaC rules and tasks
+
+### IAC_MODULES_RULES
+- Role: Reusable modules (network/compute/storage/observability/security)
+
+### IAC_ENVS_RULES
+- Role: envs/dev|stage|prod with separate tfvars and remote state
+
+### IAC_POLICIES_RULES
+- Role: OPA policies under policies/opa/
+
+### IAC_PIPELINES_RULES
+- Role: Plan/apply with approvals and state management
+
