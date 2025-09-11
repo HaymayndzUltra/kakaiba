@@ -1,0 +1,24 @@
+---
+description: "TAGS: [scaffold,monorepo,turborepo,nx,workspaces] | TRIGGERS: GEN_MONO_RULES,MONO_APPS_PACKAGES,MONO_SHARED_CONFIGS,MONO_AFFECTED_CI | SCOPE: cursor-rules | DESCRIPTION: Monorepo rules for apps/packages boundaries, shared configs, and affected-only CI."
+alwaysApply: false
+---
+
+# H. Monorepo Rules
+
+## [STRICT] Purpose
+- Define clear boundaries and efficient CI for multi-app/package repos.
+
+## [STRICT] Triggers
+
+### GEN_MONO_RULES
+- Role: Generate monorepo rules and tasks
+
+### MONO_APPS_PACKAGES
+- Role: Enforce `apps/` vs `packages/` separation and ownership
+
+### MONO_SHARED_CONFIGS
+- Role: Centralize lint/build/test configs in `packages/config/`
+
+### MONO_AFFECTED_CI
+- Role: Configure CI to run affected-only builds/tests
+

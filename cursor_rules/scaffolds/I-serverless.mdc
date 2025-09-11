@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,serverless,lambda,functions,vercel,netlify] | TRIGGERS: GEN_SERVERLESS_RULES,SL_FUNCTIONS_RULES,SL_PERMISSIONS_RULES,SL_OBS_RULES,SL_DEPLOY_RULES | SCOPE: cursor-rules | DESCRIPTION: Serverless rules for functions/layers, IAM/permissions, observability, and deployment stages."
+alwaysApply: false
+---
+
+# I. Serverless Rules
+
+## [STRICT] Purpose
+- Structure functions/layers and ensure permissions/observability are explicit.
+
+## [STRICT] Triggers
+
+### GEN_SERVERLESS_RULES
+- Role: Generate serverless rules and tasks
+
+### SL_FUNCTIONS_RULES
+- Role: Organize handlers/events/validators/middlewares per domain
+
+### SL_PERMISSIONS_RULES
+- Role: IAM policies under config/permissions/
+
+### SL_OBS_RULES
+- Role: Logs/traces dashboards and cold-start/concurrency monitoring
+
+### SL_DEPLOY_RULES
+- Role: Templates for deployments by stage (dev/stage/prod)
+

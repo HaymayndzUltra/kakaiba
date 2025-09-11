@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,platform,microservices,k8s,contracts,slo] | TRIGGERS: GEN_PLATFORM_RULES,PLATFORM_SERVICES_RULES,PLATFORM_CONTRACTS_RULES,PLATFORM_K8S_RULES,PLATFORM_SLO_RULES | SCOPE: cursor-rules | DESCRIPTION: Microservices platform rules for services/, shared contracts, k8s overlays, and SLO governance."
+alwaysApply: false
+---
+
+# O. Microservices Platform Rules
+
+## [STRICT] Purpose
+- Provide multi-service structure with shared tooling, contracts, and reliability targets.
+
+## [STRICT] Triggers
+
+### GEN_PLATFORM_RULES
+- Role: Generate platform rules and tasks
+
+### PLATFORM_SERVICES_RULES
+- Role: Service folder conventions and ownership metadata
+
+### PLATFORM_CONTRACTS_RULES
+- Role: Versioned protobuf/openapi under shared/contracts/
+
+### PLATFORM_K8S_RULES
+- Role: k8s base/overlays for envs, helm/kustomize patterns
+
+### PLATFORM_SLO_RULES
+- Role: SLOs/error budgets and runbook expectations
+

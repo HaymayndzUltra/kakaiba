@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,backend,dotnet,aspnet-core] | TRIGGERS: GEN_BE_DOTNET_RULES,BE_CLEAN_ARCH,BE_MIGRATIONS,BE_SECURITY_RULES,BE_OBS_RULES | SCOPE: cursor-rules | DESCRIPTION: ASP.NET Core rules for Clean Architecture layering, migrations, security, and observability."
+alwaysApply: false
+---
+
+# G. Backend .NET Rules
+
+## [STRICT] Purpose
+- Encode Clean Architecture layers and cross-cutting concerns.
+
+## [STRICT] Triggers
+
+### GEN_BE_DOTNET_RULES
+- Role: Generate .NET backend rules and tasks
+
+### BE_CLEAN_ARCH
+- Role: Enforce Domain/Application/Infrastructure/Api layering
+
+### BE_MIGRATIONS
+- Role: EF Core migrations policy and directory structure
+
+### BE_SECURITY_RULES
+- Role: Config per environment, external secrets, policy docs
+
+### BE_OBS_RULES
+- Role: Logging/metrics/tracing conventions
+

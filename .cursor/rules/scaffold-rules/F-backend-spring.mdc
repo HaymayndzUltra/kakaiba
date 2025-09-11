@@ -1,0 +1,27 @@
+---
+description: "TAGS: [scaffold,backend,java,spring] | TRIGGERS: GEN_BE_SPRING_RULES,BE_SPRING_PACKAGES,BE_DB_MIGRATIONS,BE_SECURITY_RULES,BE_OBS_RULES | SCOPE: cursor-rules | DESCRIPTION: Spring Boot rules for package structure, DB migrations, security, and observability."
+alwaysApply: false
+---
+
+# F. Backend Spring Rules
+
+## [STRICT] Purpose
+- Enforce Spring package boundaries and configuration practices.
+
+## [STRICT] Triggers
+
+### GEN_BE_SPRING_RULES
+- Role: Generate Spring backend rules and tasks
+
+### BE_SPRING_PACKAGES
+- Role: Package structure (controllers/services/repositories/domain/dto/security/util)
+
+### BE_DB_MIGRATIONS
+- Role: Flyway/Liquibase setup under resources/db/migration/
+
+### BE_SECURITY_RULES
+- Role: Profiles, externalized secrets, policy docs
+
+### BE_OBS_RULES
+- Role: Logging/metrics/tracing conventions
+

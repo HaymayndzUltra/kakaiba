@@ -1,0 +1,31 @@
+---
+description: "TAGS: [scaffold,frontend,spa,react,vue,svelte,angular] | TRIGGERS: GEN_FE_SPA_RULES,FE_ROUTE_RULES,FE_STATE_RULES,FE_API_CLIENT_RULES,FE_A11Y_RULES,FE_VITALS_RULES | SCOPE: cursor-rules | DESCRIPTION: SPA scaffold rules for components, routing, state, API clients, accessibility, and web vitals."
+alwaysApply: false
+---
+
+# B. Frontend SPA Rules
+
+## [STRICT] Purpose
+- Standardize SPA project structure and automation triggers.
+
+## [STRICT] Triggers
+
+### GEN_FE_SPA_RULES
+- Role: Generate SPA-focused role rules and tasks
+- Output: `.cursor/rules/generated/frontend_spa.mdc`
+
+### FE_ROUTE_RULES
+- Role: Define routing patterns and guards (pages/ or app/)
+
+### FE_STATE_RULES
+- Role: Configure store/ (Redux/Pinia/Zustand) conventions and effects isolation
+
+### FE_API_CLIENT_RULES
+- Role: Centralize services/api/ with retries, auth, and error normalization
+
+### FE_A11Y_RULES
+- Role: Accessibility checks (axe/pa11y) and test structure under test/accessibility/
+
+### FE_VITALS_RULES
+- Role: Web vitals/RUM plan under ops/observability/
+

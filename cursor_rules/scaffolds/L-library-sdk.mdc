@@ -1,0 +1,24 @@
+---
+description: "TAGS: [scaffold,library,sdk,packages] | TRIGGERS: GEN_LIB_SDK_RULES,LIB_PUBLIC_API_RULES,LIB_PUBLISHING_RULES,LIB_SECURITY_RULES | SCOPE: cursor-rules | DESCRIPTION: Library/SDK rules for public API contracts, publishing, and supply-chain security."
+alwaysApply: false
+---
+
+# L. Library/SDK Rules
+
+## [STRICT] Purpose
+- Enforce public API contracts and safe publishing practices.
+
+## [STRICT] Triggers
+
+### GEN_LIB_SDK_RULES
+- Role: Generate library/SDK rules and tasks
+
+### LIB_PUBLIC_API_RULES
+- Role: Contract tests and semantic versioning enforcement
+
+### LIB_PUBLISHING_RULES
+- Role: Release rules and registry setup in config/publishing/
+
+### LIB_SECURITY_RULES
+- Role: SBOM/license scans and dependency policies
+

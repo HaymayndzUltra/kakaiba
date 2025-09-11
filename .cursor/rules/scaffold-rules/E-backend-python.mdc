@@ -1,0 +1,30 @@
+---
+description: "TAGS: [scaffold,backend,python,fastapi,flask,django] | TRIGGERS: GEN_BE_PY_RULES,BE_FASTAPI_RULES,BE_DJANGO_RULES,BE_TASKS_RULES,BE_SECURITY_RULES,BE_OBS_RULES | SCOPE: cursor-rules | DESCRIPTION: Python backend rules for FastAPI/Flask and Django conventions, tasks, security, and observability."
+alwaysApply: false
+---
+
+# E. Backend Python Rules
+
+## [STRICT] Purpose
+- Capture FastAPI/Flask and Django-specific layout and policies.
+
+## [STRICT] Triggers
+
+### GEN_BE_PY_RULES
+- Role: Generate Python backend rules and tasks
+
+### BE_FASTAPI_RULES
+- Role: Routers/dependencies/schemas conventions; services/repositories separation
+
+### BE_DJANGO_RULES
+- Role: Settings split, apps/ encapsulation, shared middleware/utils/permissions
+
+### BE_TASKS_RULES
+- Role: Tasks scheduling (Celery/RQ) and contracts under app/tasks/
+
+### BE_SECURITY_RULES
+- Role: Auth, input validation, dependency policies
+
+### BE_OBS_RULES
+- Role: Logging/metrics/tracing setup expectations
+

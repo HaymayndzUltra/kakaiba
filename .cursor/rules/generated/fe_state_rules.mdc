@@ -1,0 +1,535 @@
+---
+description: "TAGS: [frontend,state,management,spa,generated] | TRIGGERS: FE_STATE_RULES | SCOPE: frontend-spa | DESCRIPTION: State management patterns for SPA"
+alwaysApply: true
+---
+
+# Frontend State Management Rules - frontend-spa
+
+## [STRICT] State Architecture
+
+### State Organization
+```typescript
+// src/store/types.ts
+export interface AppState {
+  ui: UIState;
+  auth: AuthState;
+  entities: EntitiesState;
+  features: FeaturesState;
+}
+
+export interface UIState {
+  theme: 'light' | 'dark';
+  sidebarOpen: boolean;
+  loading: boolean;
+  notifications: Notification[];
+  modals: ModalState;
+}
+
+export interface AuthState {
+  user: User | null;
+  token: string | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  error: string | null;
+}
+
+export interface EntitiesState {
+  users: Record<string, User>;
+  posts: Record<string, Post>;
+  comments: Record<string, Comment>;
+}
+
+export interface FeaturesState {
+  dashboard: DashboardState;
+  profile: ProfileState;
+  admin: AdminState;
+}
+```
+
+### Store Structure
+```typescript
+// src/store/index.ts
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createSlice } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['auth', 'ui'],
+};
+
+const rootReducer = combineReducers({
+  ui: uiSlice.reducer,
+  auth: authSlice.reducer,
+  entities: entitiesSlice.reducer,
+  features: featuresSlice.reducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(persistedReducer, applyMiddleware(thunk));
+export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+```
+
+## [STRICT] Redux Toolkit Slices
+
+### UI Slice
+```typescript
+// src/store/slices/uiSlice.ts
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface UIState {
+  theme: 'light' | 'dark';
+  sidebarOpen: boolean;
+  loading: boolean;
+  notifications: Notification[];
+  modals: {
+    isOpen: boolean;
+    type: string | null;
+    data: any;
+  };
+}
+
+const initialState: UIState = {
+  theme: 'light',
+  sidebarOpen: false,
+  loading: false,
+  notifications: [],
+  modals: {
+    isOpen: false,
+    type: null,
+    data: null,
+  },
+};
+
+export const uiSlice = createSlice({
+  name: 'ui',
+  initialState,
+  reducers: {
+    setTheme: (state, action: PayloadAction<'light' | 'dark'>) => {
+      state.theme = action.payload;
+    },
+    toggleSidebar: (state) => {
+      state.sidebarOpen = !state.sidebarOpen;
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
+    },
+    addNotification: (state, action: PayloadAction<Notification>) => {
+      state.notifications.push(action.payload);
+    },
+    removeNotification: (state, action: PayloadAction<string>) => {
+      state.notifications = state.notifications.filter(
+        notification => notification.id !== action.payload
+      );
+    },
+    openModal: (state, action: PayloadAction<{ type: string; data?: any }>) => {
+      state.modals = {
+        isOpen: true,
+        type: action.payload.type,
+        data: action.payload.data,
+      };
+    },
+    closeModal: (state) => {
+      state.modals = {
+        isOpen: false,
+        type: null,
+        data: null,
+      };
+    },
+  },
+});
+
+export const {
+  setTheme,
+  toggleSidebar,
+  setLoading,
+  addNotification,
+  removeNotification,
+  openModal,
+  closeModal,
+} = uiSlice.actions;
+```
+
+### Auth Slice
+```typescript
+// src/store/slices/authSlice.ts
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { authService } from '../../services/authService';
+
+interface AuthState {
+  user: User | null;
+  token: string | null;
+  isAuthenticated: boolean;
+  isLoading: boolean;
+  error: string | null;
+}
+
+const initialState: AuthState = {
+  user: null,
+  token: null,
+  isAuthenticated: false,
+  isLoading: false,
+  error: null,
+};
+
+// Async thunks
+export const loginUser = createAsyncThunk(
+  'auth/login',
+  async (credentials: LoginCredentials, { rejectWithValue }) => {
+    try {
+      const response = await authService.login(credentials);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logoutUser = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await authService.logout();
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    clearError: (state) => {
+      state.error = null;
+    },
+    setToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.isAuthenticated = true;
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload as string;
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.user = null;
+        state.token = null;
+        state.isAuthenticated = false;
+      });
+  },
+});
+
+export const { clearError, setToken } = authSlice.actions;
+```
+
+## [STRICT] Selectors
+
+### Basic Selectors
+```typescript
+// src/store/selectors/index.ts
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from '../index';
+
+// Basic selectors
+export const selectUI = (state: RootState) => state.ui;
+export const selectAuth = (state: RootState) => state.auth;
+export const selectEntities = (state: RootState) => state.entities;
+
+// Memoized selectors
+export const selectUser = createSelector(
+  [selectAuth],
+  (auth) => auth.user
+);
+
+export const selectIsAuthenticated = createSelector(
+  [selectAuth],
+  (auth) => auth.isAuthenticated
+);
+
+export const selectTheme = createSelector(
+  [selectUI],
+  (ui) => ui.theme
+);
+
+export const selectNotifications = createSelector(
+  [selectUI],
+  (ui) => ui.notifications
+);
+
+export const selectLoading = createSelector(
+  [selectUI],
+  (ui) => ui.loading
+);
+```
+
+### Complex Selectors
+```typescript
+// src/store/selectors/complex.ts
+export const selectUserPosts = createSelector(
+  [selectEntities, selectUser],
+  (entities, user) => {
+    if (!user) return [];
+    return Object.values(entities.posts).filter(post => post.userId === user.id);
+  }
+);
+
+export const selectPostsWithComments = createSelector(
+  [selectEntities],
+  (entities) => {
+    return Object.values(entities.posts).map(post => ({
+      ...post,
+      comments: Object.values(entities.comments).filter(
+        comment => comment.postId === post.id
+      ),
+    }));
+  }
+);
+
+export const selectUnreadNotifications = createSelector(
+  [selectNotifications],
+  (notifications) => notifications.filter(notification => !notification.read)
+);
+```
+
+## [STRICT] Custom Hooks
+
+### State Hooks
+```typescript
+// src/hooks/useAppSelector.ts
+import { useSelector, useDispatch } from 'react-redux';
+import type { RootState, AppDispatch } from '../store';
+
+export const useAppSelector = <T>(selector: (state: RootState) => T): T => {
+  return useSelector(selector);
+};
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+```
+
+### Feature Hooks
+```typescript
+// src/hooks/useAuth.ts
+export const useAuth = () => {
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const isLoading = useAppSelector(state => state.auth.isLoading);
+  const error = useAppSelector(state => state.auth.error);
+
+  const login = useCallback((credentials: LoginCredentials) => {
+    dispatch(loginUser(credentials));
+  }, [dispatch]);
+
+  const logout = useCallback(() => {
+    dispatch(logoutUser());
+  }, [dispatch]);
+
+  const clearError = useCallback(() => {
+    dispatch(authSlice.actions.clearError());
+  }, [dispatch]);
+
+  return {
+    user,
+    isAuthenticated,
+    isLoading,
+    error,
+    login,
+    logout,
+    clearError,
+  };
+};
+```
+
+### UI Hooks
+```typescript
+// src/hooks/useUI.ts
+export const useUI = () => {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector(selectTheme);
+  const sidebarOpen = useAppSelector(state => state.ui.sidebarOpen);
+  const loading = useAppSelector(selectLoading);
+  const notifications = useAppSelector(selectNotifications);
+
+  const toggleTheme = useCallback(() => {
+    dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
+  }, [dispatch, theme]);
+
+  const toggleSidebar = useCallback(() => {
+    dispatch(uiSlice.actions.toggleSidebar());
+  }, [dispatch]);
+
+  const addNotification = useCallback((notification: Omit<Notification, 'id'>) => {
+    const id = Date.now().toString();
+    dispatch(uiSlice.actions.addNotification({ ...notification, id }));
+  }, [dispatch]);
+
+  const removeNotification = useCallback((id: string) => {
+    dispatch(uiSlice.actions.removeNotification(id));
+  }, [dispatch]);
+
+  return {
+    theme,
+    sidebarOpen,
+    loading,
+    notifications,
+    toggleTheme,
+    toggleSidebar,
+    addNotification,
+    removeNotification,
+  };
+};
+```
+
+## [STRICT] State Persistence
+
+### Persist Configuration
+```typescript
+// src/store/persist.ts
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { combineReducers } from '@reduxjs/toolkit';
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token', 'user'],
+};
+
+const uiPersistConfig = {
+  key: 'ui',
+  storage,
+  whitelist: ['theme'],
+};
+
+export const persistedReducers = {
+  auth: persistReducer(authPersistConfig, authSlice.reducer),
+  ui: persistReducer(uiPersistConfig, uiSlice.reducer),
+  entities: entitiesSlice.reducer,
+  features: featuresSlice.reducer,
+};
+```
+
+## [STRICT] State Testing
+
+### Store Testing
+```typescript
+// test/store/authSlice.test.ts
+import { configureStore } from '@reduxjs/toolkit';
+import authSlice, { loginUser, logoutUser } from '../../src/store/slices/authSlice';
+
+describe('Auth Slice', () => {
+  let store: ReturnType<typeof configureStore>;
+
+  beforeEach(() => {
+    store = configureStore({
+      reducer: {
+        auth: authSlice.reducer,
+      },
+    });
+  });
+
+  it('should handle initial state', () => {
+    const state = store.getState().auth;
+    expect(state).toEqual({
+      user: null,
+      token: null,
+      isAuthenticated: false,
+      isLoading: false,
+      error: null,
+    });
+  });
+
+  it('should handle login pending', () => {
+    store.dispatch(loginUser.pending('', { email: 'test@example.com', password: 'password' }));
+    const state = store.getState().auth;
+    expect(state.isLoading).toBe(true);
+    expect(state.error).toBeNull();
+  });
+
+  it('should handle login fulfilled', () => {
+    const mockUser = { id: '1', email: 'test@example.com' };
+    const mockToken = 'mock-token';
+    
+    store.dispatch(loginUser.fulfilled({
+      user: mockUser,
+      token: mockToken,
+    }, '', { email: 'test@example.com', password: 'password' }));
+    
+    const state = store.getState().auth;
+    expect(state.user).toEqual(mockUser);
+    expect(state.token).toBe(mockToken);
+    expect(state.isAuthenticated).toBe(true);
+    expect(state.isLoading).toBe(false);
+  });
+});
+```
+
+## [STRICT] State Performance
+
+### Memoization
+```typescript
+// src/store/selectors/memoized.ts
+import { createSelector } from '@reduxjs/toolkit';
+
+// Memoized selectors for performance
+export const selectExpensiveComputation = createSelector(
+  [selectEntities],
+  (entities) => {
+    // Expensive computation that will be memoized
+    return Object.values(entities.posts)
+      .filter(post => post.published)
+      .sort((a, b) => b.createdAt - a.createdAt)
+      .map(post => ({
+        ...post,
+        commentCount: Object.values(entities.comments)
+          .filter(comment => comment.postId === post.id).length,
+      }));
+  }
+);
+```
+
+### State Normalization
+```typescript
+// src/store/normalization.ts
+import { createEntityAdapter } from '@reduxjs/toolkit';
+
+export const postsAdapter = createEntityAdapter<Post>({
+  selectId: (post) => post.id,
+  sortComparer: (a, b) => b.createdAt - a.createdAt,
+});
+
+export const commentsAdapter = createEntityAdapter<Comment>({
+  selectId: (comment) => comment.id,
+  sortComparer: (a, b) => a.createdAt - b.createdAt,
+});
+
+// Use adapters in slices
+export const postsSlice = createSlice({
+  name: 'posts',
+  initialState: postsAdapter.getInitialState(),
+  reducers: {
+    addPost: postsAdapter.addOne,
+    updatePost: postsAdapter.updateOne,
+    removePost: postsAdapter.removeOne,
+    setPosts: postsAdapter.setAll,
+  },
+});
+```

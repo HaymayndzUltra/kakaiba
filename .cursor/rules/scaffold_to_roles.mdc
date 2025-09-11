@@ -1,0 +1,83 @@
+---
+description: "TAGS: [cursor,role-mapping,scaffold,code-intelligence] | TRIGGERS: MAP_SCAFFOLD_TO_ROLES,DETECT_DOMAINS,EXTRACT_SERVICES,EMIT_ROLE_GROUP,REGISTER_TRIGGERS | SCOPE: cursor-rules | DESCRIPTION: Maps a project scaffold to domain-specific role rules and emits group MDCs with project-scoped triggers."
+alwaysApply: false
+---
+
+# Scaffold → Roles Mapper
+
+## [STRICT] Purpose
+- Convert a project scaffold into concrete role-group rules and triggers.
+- Output MDC files scoped to detected domains (development, analysis, security, automation, learning, coordination).
+
+## [STRICT] Triggers
+
+### MAP_SCAFFOLD_TO_ROLES
+- Accepts: `tree`, `manifest`, or `path`
+- Runs: `DETECT_DOMAINS` → `EXTRACT_SERVICES` → `EMIT_ROLE_GROUP` (per domain) → `REGISTER_TRIGGERS`
+- Output: Generated role-group MDC files under `.cursor/rules/generated/`
+
+### DETECT_DOMAINS
+- Heuristics:
+  - `frontend/`, `src/components/`, `app/` → Development (frontend)
+  - `backend/`, `services/`, `api/` → Development (backend)
+  - `events/`, `queue/`, `broker/` → Backend communication
+  - `infra/`, `deploy/`, `ci/` → Automation/DevOps
+  - `tests/`, `qa/` → Analysis/Quality
+  - `security/`, `audit/` → Security
+
+### EXTRACT_SERVICES
+- Parse known backends: group by `backend/services/<name>`
+- Detect API surfaces under `backend/api` and event topics under `backend/events`
+- Produce a service catalog with names, endpoints, and event channels when identifiable
+
+### EMIT_ROLE_GROUP
+- For each detected domain, emit a group MDC with project-scoped triggers.
+- Trigger naming pattern: `<GROUP_TRIGGER>__<PROJECT_OR_SERVICE>` (uppercase, kebab/space → underscore)
+
+### REGISTER_TRIGGERS
+- Append all generated triggers and file paths into `generated/_index.mdc`
+
+## [STRICT] Output Structure
+- `generated/development.mdc`
+- `generated/analysis.mdc`
+- `generated/security.mdc`
+- `generated/automation.mdc`
+- `generated/learning.mdc`
+- `generated/coordination.mdc`
+- `generated/backend_communication.mdc` (if backend found)
+- `generated/_index.mdc`
+
+## [STRICT] Example Mapping
+
+Input tree:
+```text
+app/
+  frontend/src/components/
+  backend/services/users/
+  backend/services/orders/
+  backend/api/
+  backend/events/
+  infra/deploy/
+  tests/
+```
+
+Detected domains and triggers (examples):
+- Development:
+  - `DEV_FRONTEND__APP`
+  - `DEV_BACKEND__USERS_SERVICE`
+  - `DEV_BACKEND__ORDERS_SERVICE`
+  - `DEV_OPS__APP`
+- Analysis:
+  - `ANALYZE_QUALITY__APP`
+- Security:
+  - `SEC_ENGINEER__APP`
+- Automation:
+  - `AUTO_WORKFLOW__CI_DEPLOY`
+- Coordination:
+  - `COORD_PROJECT__APP`
+
+## [STRICT] Emission Rules
+- Include: Purpose, Capabilities, Triggers, Example prompts
+- Cross-link to `backend_communication.mdc` when services are present
+- Avoid trigger collisions using the scoped pattern above
+

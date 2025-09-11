@@ -1,0 +1,81 @@
+---
+description: "TAGS: [cursor,backend,communication,triggers,events,api,rpc] | TRIGGERS: LINK_SERVICE,DEFINE_CHANNEL,EMIT_EVENT,SUBSCRIBE_EVENT,EXPOSE_ENDPOINT,CALL_ENDPOINT,SET_CONTRACT,TEST_CONTRACT,TRACE_FLOW | SCOPE: cursor-rules | DESCRIPTION: Backend communication control via triggers for services, APIs, and events so the AI can execute interactions directly."
+alwaysApply: false
+---
+
+# Backend Communication Triggers
+
+## [STRICT] Purpose
+- Standardize how backend components communicate (service→service, API, events) via triggers AI can execute.
+- Allow generation of service-specific triggers from the scaffold (services, api, events).
+
+## [STRICT] Core Concepts
+- Service: a logical backend unit, e.g., `users`, `orders`
+- Channel: event bus topic/queue, e.g., `user.created`
+- Endpoint: HTTP/RPC interface, e.g., `POST /api/users`
+- Contract: I/O schema and expectations
+
+## [STRICT] Triggers
+
+### LINK_SERVICE
+- Role: Register a communication link between `from:<service>` and `to:<service>`
+- Accepts: `from`, `to`, `via: api|rpc|event`, `notes?`
+- Output: Link recorded in `generated/backend_links.mdc`
+
+### DEFINE_CHANNEL
+- Role: Declare an event channel for a service
+- Accepts: `service`, `channel`, `schema?`, `retention?`
+- Output: Channel entry in `generated/backend_channels.mdc`
+
+### EMIT_EVENT
+- Role: Emit an event on a channel
+- Accepts: `service`, `channel`, `payload`, `mode: dry|live`
+- Behavior: In dry mode, produce the message spec; in live mode, call configured emitter
+
+### SUBSCRIBE_EVENT
+- Role: Subscribe a service to a channel
+- Accepts: `service`, `channel`, `handler: <trigger or command>`
+- Output: Subscription registered in `generated/backend_channels.mdc`
+
+### EXPOSE_ENDPOINT
+- Role: Expose an API/RPC endpoint for a service
+- Accepts: `service`, `method`, `path|procedure`, `requestSchema?`, `responseSchema?`, `auth?`
+- Output: Endpoint entry in `generated/backend_endpoints.mdc`
+
+### CALL_ENDPOINT
+- Role: Call an endpoint
+- Accepts: `service`, `method`, `path|procedure`, `payload?`, `headers?`, `mode: dry|live`
+- Behavior: Dry mode prints curl/command; live mode executes via configured client
+
+### SET_CONTRACT
+- Role: Define/attach a contract to a channel or endpoint
+- Accepts: `type: event|endpoint`, `name`, `requestSchema`, `responseSchema?`, `examples?`
+- Output: Contract entry in `generated/backend_contracts.mdc`
+
+### TEST_CONTRACT
+- Role: Validate contract with example cases
+- Accepts: `target: <event|endpoint name>`, `cases: <list>`
+- Output: Test results in `generated/backend_contract_tests.mdc`
+
+### TRACE_FLOW
+- Role: Trace a cross-service flow from source to sinks
+- Accepts: `fromService`, `scenario`, `mode: plan|run`
+- Output: Planned or executed trace steps with timestamps
+
+## [STRICT] Generation from Scaffold
+- For each `backend/services/<name>`:
+  - Create scoped triggers: `EXPOSE_ENDPOINT__<NAME>`, `CALL_ENDPOINT__<NAME>`, `EMIT_EVENT__<NAME>`, `SUBSCRIBE_EVENT__<NAME>`
+- For `backend/api/`: default gateway service name `api`
+- For `backend/events/`: derive channels from filenames or directories
+
+## [STRICT] Examples
+- Link services:
+  - LINK_SERVICE from: users to: orders via: event
+  - LINK_SERVICE from: api to: users via: api
+- Define channels and endpoints:
+  - DEFINE_CHANNEL service: users channel: user.created
+  - EXPOSE_ENDPOINT service: users method: POST path: /api/users
+- Emit and call (dry):
+  - EMIT_EVENT service: users channel: user.created payload: {id: "u1"} mode: dry
+  - CALL_ENDPOINT service: users method: GET path: /api/users/u1 mode: dry
+

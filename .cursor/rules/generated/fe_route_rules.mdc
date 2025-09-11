@@ -1,0 +1,362 @@
+---
+description: "TAGS: [frontend,routing,spa,generated] | TRIGGERS: FE_ROUTE_RULES | SCOPE: frontend-spa | DESCRIPTION: Routing patterns and guards for SPA"
+alwaysApply: true
+---
+
+# Frontend Routing Rules - frontend-spa
+
+## [STRICT] Route Configuration
+
+### Route Structure
+```typescript
+// src/routes/index.ts
+export const routes = [
+  {
+    path: '/',
+    component: HomePage,
+    exact: true,
+    meta: {
+      title: 'Home',
+      requiresAuth: false,
+    },
+  },
+  {
+    path: '/dashboard',
+    component: DashboardPage,
+    protected: true,
+    roles: ['user', 'admin'],
+    meta: {
+      title: 'Dashboard',
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/profile',
+    component: ProfilePage,
+    protected: true,
+    meta: {
+      title: 'Profile',
+      requiresAuth: true,
+    },
+  },
+  {
+    path: '/admin',
+    component: AdminPage,
+    protected: true,
+    roles: ['admin'],
+    meta: {
+      title: 'Admin',
+      requiresAuth: true,
+    },
+  },
+];
+```
+
+### Route Guards
+```typescript
+// src/guards/AuthGuard.tsx
+interface AuthGuardProps {
+  children: React.ReactNode;
+  roles?: string[];
+}
+
+export const AuthGuard: React.FC<AuthGuardProps> = ({ children, roles }) => {
+  const { user, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/login');
+      return;
+    }
+
+    if (roles && !roles.includes(user?.role)) {
+      navigate('/unauthorized');
+      return;
+    }
+  }, [isAuthenticated, user, roles, navigate]);
+
+  if (!isAuthenticated) {
+    return <LoadingSpinner />;
+  }
+
+  if (roles && !roles.includes(user?.role)) {
+    return <UnauthorizedPage />;
+  }
+
+  return <>{children}</>;
+};
+```
+
+### Route Protection
+```typescript
+// src/components/ProtectedRoute.tsx
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+  roles?: string[];
+}
+
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
+  children,
+  roles,
+}) => {
+  return (
+    <AuthGuard roles={roles}>
+      {children}
+    </AuthGuard>
+  );
+};
+```
+
+## [STRICT] Navigation Patterns
+
+### Navigation Component
+```typescript
+// src/components/Navigation.tsx
+export const Navigation: React.FC = () => {
+  const { user, isAuthenticated } = useAuth();
+  const location = useLocation();
+
+  const navigationItems = [
+    { path: '/', label: 'Home', public: true },
+    { path: '/dashboard', label: 'Dashboard', public: false },
+    { path: '/profile', label: 'Profile', public: false },
+  ];
+
+  const filteredItems = navigationItems.filter(item => 
+    item.public || isAuthenticated
+  );
+
+  return (
+    <nav role="navigation" aria-label="Main navigation">
+      <ul>
+        {filteredItems.map(item => (
+          <li key={item.path}>
+            <NavLink
+              to={item.path}
+              className={({ isActive }) => 
+                isActive ? 'active' : ''
+              }
+              aria-current={location.pathname === item.path ? 'page' : undefined}
+            >
+              {item.label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+```
+
+### Breadcrumb Navigation
+```typescript
+// src/components/Breadcrumb.tsx
+export const Breadcrumb: React.FC = () => {
+  const location = useLocation();
+  const breadcrumbs = generateBreadcrumbs(location.pathname);
+
+  return (
+    <nav aria-label="Breadcrumb">
+      <ol>
+        {breadcrumbs.map((crumb, index) => (
+          <li key={crumb.path}>
+            {index === breadcrumbs.length - 1 ? (
+              <span aria-current="page">{crumb.label}</span>
+            ) : (
+              <Link to={crumb.path}>{crumb.label}</Link>
+            )}
+            {index < breadcrumbs.length - 1 && <span aria-hidden="true">/</span>}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+};
+```
+
+## [STRICT] Route Utilities
+
+### Route Helper Functions
+```typescript
+// src/utils/routing.ts
+export const generateBreadcrumbs = (pathname: string) => {
+  const pathSegments = pathname.split('/').filter(Boolean);
+  const breadcrumbs = [{ path: '/', label: 'Home' }];
+
+  let currentPath = '';
+  pathSegments.forEach(segment => {
+    currentPath += `/${segment}`;
+    breadcrumbs.push({
+      path: currentPath,
+      label: formatSegmentLabel(segment),
+    });
+  });
+
+  return breadcrumbs;
+};
+
+export const formatSegmentLabel = (segment: string): string => {
+  return segment
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+export const isRouteActive = (path: string, currentPath: string): boolean => {
+  if (path === '/') {
+    return currentPath === '/';
+  }
+  return currentPath.startsWith(path);
+};
+```
+
+### Route Constants
+```typescript
+// src/constants/routes.ts
+export const ROUTES = {
+  HOME: '/',
+  DASHBOARD: '/dashboard',
+  PROFILE: '/profile',
+  ADMIN: '/admin',
+  LOGIN: '/login',
+  UNAUTHORIZED: '/unauthorized',
+  NOT_FOUND: '/404',
+} as const;
+
+export const PROTECTED_ROUTES = [
+  ROUTES.DASHBOARD,
+  ROUTES.PROFILE,
+  ROUTES.ADMIN,
+] as const;
+
+export const ADMIN_ROUTES = [
+  ROUTES.ADMIN,
+] as const;
+```
+
+## [STRICT] Route Testing
+
+### Route Test Examples
+```typescript
+// test/routing/routes.test.tsx
+describe('Route Configuration', () => {
+  it('renders home page for root route', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByText('Home Page')).toBeInTheDocument();
+  });
+
+  it('redirects to login for protected routes when not authenticated', () => {
+    render(
+      <MemoryRouter initialEntries={['/dashboard']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByText('Login Page')).toBeInTheDocument();
+  });
+
+  it('renders dashboard for authenticated users', () => {
+    const mockUser = { id: '1', role: 'user' };
+    render(
+      <MemoryRouter initialEntries={['/dashboard']}>
+        <AuthProvider value={{ user: mockUser, isAuthenticated: true }}>
+          <App />
+        </AuthProvider>
+      </MemoryRouter>
+    );
+    expect(screen.getByText('Dashboard Page')).toBeInTheDocument();
+  });
+});
+```
+
+## [STRICT] Route Performance
+
+### Lazy Loading Routes
+```typescript
+// src/routes/lazy.ts
+export const LazyHomePage = React.lazy(() => import('../pages/HomePage'));
+export const LazyDashboardPage = React.lazy(() => import('../pages/DashboardPage'));
+export const LazyProfilePage = React.lazy(() => import('../pages/ProfilePage'));
+
+// Route configuration with lazy loading
+export const lazyRoutes = [
+  {
+    path: '/',
+    component: LazyHomePage,
+    exact: true,
+  },
+  {
+    path: '/dashboard',
+    component: LazyDashboardPage,
+    protected: true,
+  },
+  {
+    path: '/profile',
+    component: LazyProfilePage,
+    protected: true,
+  },
+];
+```
+
+### Route Preloading
+```typescript
+// src/hooks/useRoutePreload.ts
+export const useRoutePreload = () => {
+  const preloadRoute = useCallback((routePath: string) => {
+    const route = routes.find(r => r.path === routePath);
+    if (route && 'component' in route) {
+      // Preload the component
+      import(`../pages/${route.component.name}`);
+    }
+  }, []);
+
+  return { preloadRoute };
+};
+```
+
+## [STRICT] Route Accessibility
+
+### Accessible Navigation
+```typescript
+// src/components/AccessibleNavigation.tsx
+export const AccessibleNavigation: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLUListElement>(null);
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isMenuOpen]);
+
+  return (
+    <nav role="navigation" aria-label="Main navigation">
+      <button
+        aria-expanded={isMenuOpen}
+        aria-controls="main-menu"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        Menu
+      </button>
+      <ul
+        id="main-menu"
+        ref={menuRef}
+        style={{ display: isMenuOpen ? 'block' : 'none' }}
+      >
+        {/* Navigation items */}
+      </ul>
+    </nav>
+  );
+};
+```
