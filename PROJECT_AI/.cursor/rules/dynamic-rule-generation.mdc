@@ -1,5 +1,21 @@
 ---
-description:
-globs:
-alwaysApply: true
+description: "TAGS: [automation,rule-generation,learning] | TRIGGERS: [GENERATE_RULES,LEARN_FROM_PROMPT] | SCOPE: project-rules | DESCRIPTION: Generate new AI rules based on learned patterns and prompt analysis."
+alwaysApply: false
 ---
+
+# Dynamic Rule Generation System
+
+## [STRICT] Purpose
+Automatically generate new AI rules based on learned patterns from user prompts and interactions.
+
+## [STRICT] Process
+1. Analyze input prompt for patterns and requirements
+2. Extract reusable rule templates
+3. Generate appropriate rule metadata (TAGS, TRIGGERS, SCOPE)
+4. Create rule content based on pattern analysis
+5. Validate rule compatibility with existing system
+6. Output ready-to-use rule files
+
+## [STRICT] Triggers
+- GENERATE_RULES: Generate rules from learned patterns
+- LEARN_FROM_PROMPT: Extract learning from single prompt

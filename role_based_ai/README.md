@@ -123,3 +123,4 @@ Each role group contains:
 - **Output formats** - Standardized deliverables
 
 This framework provides a clean, organized approach to role-based AI coordination that integrates seamlessly with Cursor!
+

@@ -204,3 +204,4 @@ python3 role_based_ai/activate_role.py group analysis
 - **Import errors**: Check Python path and dependencies
 
 This Role-Based AI Framework provides a clean, organized approach to specialized AI coordination that integrates seamlessly with Cursor!
+

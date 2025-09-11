@@ -1,5 +1,151 @@
 ---
-description:
-globs:
-alwaysApply: true
+description: "TAGS: [scaffold-analyzer,rule-generator,mdc-creator] | TRIGGERS: [GENERATE_SCAFFOLD_RULE,CREATE_SCAFFOLD_MDC,ANALYZE_SCAFFOLD_TREE] | SCOPE: project-rules | DESCRIPTION: Analyzes scaffold tree structures and generates specialized .mdc cursor rule files for role-based development within that scaffold."
+alwaysApply: false
 ---
+
+# Scaffold Tree to Cursor Rule Generator
+
+## [STRICT] Purpose
+Analyze any scaffold directory structure and generate a specialized .mdc cursor rule file that creates role-based AI assistants for that specific scaffold.
+
+## [STRICT] Main Trigger: GENERATE_SCAFFOLD_RULE
+
+### Input Format:
+
+GENERATE_SCAFFOLD_RULE
+<scaffold-name>
+<directory-tree-structure>
+### Example Usage:
+
+backend-py/
+  src/
+    app/
+      main.py (reference-only in docs)   # (walang code, pangalan lang)
+      api/
+        routers/
+        dependencies/
+        schemas/
+      core/
+        config/
+        security/
+        logging/
+      services/
+      repositories/
+      models/
+      tasks/           # Celery/RQ scheduling structure
+    db/
+      migrations/
+      seeds/
+  test/
+    unit/
+    integration/
+    e2e/
+  config/
+    env/
+    feature_flags/
+  scripts/
+  tools/
+  ops/
+    docker/
+    observability/
+  docs/
+
+
+## [STRICT] Processing Logic
+
+### 1. Structure Analysis
+- Parse directory tree to identify framework patterns
+- Map folders to development roles
+- Detect technology stack from folder/file names
+- Identify common development tasks per folder
+
+### 2. Framework Detection Patterns
+```yaml
+Python/FastAPI:
+  indicators: ["main.py", "routers/", "schemas/", "requirements.txt"]
+  
+React:
+  indicators: ["package.json", "src/components/", "public/", "node_modules/"]
+  
+Django:
+  indicators: ["manage.py", "models/", "migrations/", "settings.py"]
+  
+Express:
+  indicators: ["app.js", "routes/", "middleware/", "package.json"]
+```
+
+### 3. Role Mapping Logic
+```yaml
+api/routers/ → API_DEVELOPER_ROLE
+models/ → MODEL_DEVELOPER_ROLE  
+services/ → SERVICE_DEVELOPER_ROLE
+test/ → QA_TESTER_ROLE
+ops/docker/ → DEVOPS_ROLE
+core/config/ → CONFIG_MANAGER_ROLE
+```
+
+### 4. Generated .mdc File Template
+```yaml
+---
+description: "TAGS: [<detected-framework>] | TRIGGERS: [<generated-triggers>] | SCOPE: project-rules | DESCRIPTION: Role-based AI for <scaffold-name> with <detected-tech-stack>."
+alwaysApply: false
+---
+
+# <scaffold-name> Specialist AI
+
+## AI Persona
+Multi-role AI specialized for <scaffold-name> development with expertise in <detected-frameworks>.
+
+## Scaffold Structure
+<embedded-tree-structure>
+
+## Role-Based Commands
+
+### <ROLE_1>
+**Triggers**: <role-specific-triggers>
+**Capabilities**: <role-specific-tasks>
+**File Scope**: <role-file-boundaries>
+
+### <ROLE_2>
+...continuing for all detected roles
+
+## [STRICT] Protocol
+1. Work within scaffold structure
+2. Follow framework conventions
+3. Maintain role boundaries
+4. Coordinate between roles for full-stack tasks
+```
+
+## [STRICT] Role Generation Rules
+
+### Backend Folder Mapping:
+- `api/` → **API_DEVELOPER** (CREATE_ENDPOINT, ADD_ROUTER, UPDATE_SCHEMA)
+- `models/` → **MODEL_DEVELOPER** (CREATE_MODEL, ADD_FIELD, CREATE_MIGRATION)
+- `services/` → **SERVICE_DEVELOPER** (CREATE_SERVICE, ADD_BUSINESS_LOGIC)
+- `repositories/` → **DATA_DEVELOPER** (CREATE_REPOSITORY, ADD_QUERY)
+- `core/config/` → **CONFIG_MANAGER** (ADD_CONFIG, UPDATE_SETTINGS)
+- `core/security/` → **SECURITY_DEVELOPER** (ADD_AUTH, UPDATE_PERMISSIONS)
+- `tasks/` → **TASK_DEVELOPER** (CREATE_TASK, SCHEDULE_JOB)
+
+### Test Folder Mapping:
+- `test/unit/` → **UNIT_TESTER** (CREATE_UNIT_TEST, RUN_UNIT_TESTS)
+- `test/integration/` → **INTEGRATION_TESTER** (CREATE_INTEGRATION_TEST)
+- `test/e2e/` → **E2E_TESTER** (CREATE_E2E_TEST, RUN_E2E)
+
+### DevOps Folder Mapping:
+- `ops/docker/` → **DOCKER_SPECIALIST** (CREATE_DOCKERFILE, UPDATE_COMPOSE)
+- `ops/observability/` → **MONITORING_SPECIALIST** (ADD_METRICS, SETUP_LOGGING)
+
+### Database Folder Mapping:
+- `db/migrations/` → **MIGRATION_MANAGER** (CREATE_MIGRATION, RUN_MIGRATION)
+- `db/seeds/` → **DATA_SEEDER** (CREATE_SEED, RUN_SEEDS)
+
+## [STRICT] Usage Instructions
+
+1. **Input**: Provide scaffold name and complete directory tree
+2. **Processing**: Rule analyzes structure and detects patterns  
+3. **Output**: Generates specialized .mdc file for that scaffold
+4. **Result**: Load generated .mdc file to get role-based AI for scaffold
+
+**Command**: `GENERATE_SCAFFOLD_RULE <name> <tree-structure>`
+**Output**: `<name>-specialist.mdc` file ready for use
